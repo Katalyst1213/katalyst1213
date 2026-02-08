@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peptide Calculator | Katalyst Peptides SA</title>
+    <meta name="description" content="Free Peptide Reconstitution Calculator. Calculate correct dosage for BPC-157, Retatrutide, and more.">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0a2540; 
+            --accent: #007bff; 
+            --bg-light: #f8f9fc;
+            --white: #ffffff;
+            --gold: #c5a059;
+        }
+
+        body { font-family: 'Open Sans', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: #333; }
+        
+        nav { background-color: var(--white); padding: 15px 0; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        nav a { color: var(--primary); text-decoration: none; padding: 0 20px; font-weight: 600; text-transform: uppercase; }
+
+        .calc-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #004e92 100%);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .calc-hero h1 { font-family: 'Montserrat', sans-serif; margin: 0; }
+
+        .calculator-box {
+            background: var(--white);
+            max-width: 500px;
+            margin: -30px auto 50px;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        label { display: block; font-weight: 700; margin-bottom: 8px; color: var(--primary); }
+        input { width: 100%; padding: 12px; border: 2px solid #eee; border-radius: 8px; margin-bottom: 20px; font-size: 1rem; box-sizing: border-box; }
+        input:focus { border-color: var(--accent); outline: none; }
+
+        .btn-calc {
+            background-color: var(--gold);
+            color: var(--primary);
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: transform 0.2s;
+        }
+        .btn-calc:hover { transform: scale(1.02); }
+
+        #result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-left: 5px solid var(--accent);
+            border-radius: 4px;
+            display: none;
+        }
+        .result-title { font-weight: 800; font-size: 1.2rem; color: var(--primary); }
+        .result-value { font-size: 2rem; font-weight: 800; color: var(--accent); margin: 10px 0; }
+        .syringe-instruction { margin-top: 10px; font-style: italic; color: #555; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Catalogue</a>
+    <a href="calculator.html" style="color:var(--accent);">Calculator</a>
+    <a href="articles.html">Research Hub</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#contact">Contact</a>
+</nav>
+
+<div class="calc-hero">
+    <h1>Research Calculator</h1>
+    <p>Precision Dosing Tool for Researchers</p>
+</div>
+
+<div class="calculator-box">
+    <label>1. Vial Quantity (mg)</label>
+    <input type="number" id="vialMg" placeholder="e.g. 5 (for 5mg BPC-157)">
+
+    <label>2. Bacteriostatic Water Added (ml)</label>
+    <input type="number" id="waterMl" placeholder="e.g. 2 (for 2ml water)">
+
+    <label>3. Desired Research Dose (mcg)</label>
+    <input type="number" id="doseMcg" placeholder="e.g. 250">
+
+    <button class="btn-calc" onclick="calculate()">Calculate Dose</button>
+
+    <div id="result">
+        <div class="result-title">Research Protocol:</div>
+        <div class="result-value" id="iuOutput">0 Units</div>
+        <div class="syringe-instruction" id="textOutput">
+            <strong>Requires a U-100 Insulin Syringe.</strong><br>
+            Pull liquid to the 10 mark (0.1ml).
+        </div>
+    </div>
+</div>
+
+<script>
+    function calculate() {
+        let mg = parseFloat(document.getElementById('vialMg').value);
+        let ml = parseFloat(document.getElementById('waterMl').value);
+        let dose = parseFloat(document.getElementById('doseMcg').value);
+
+        if (!mg || !ml || !dose) {
+            alert("Please fill in all fields correctly.");
+            return;
+        }
+
+        let totalMcg = mg * 1000;
+        let concentration = totalMcg / ml;
+        let volumeNeeded = dose / concentration;
+        let units = volumeNeeded * 100;
+
+        document.getElementById('result').style.display = 'block';
+        document.getElementById('iuOutput').innerText = units.toFixed(1) + " Units";
+        document.getElementById('textOutput').innerHTML = `
+            <strong>Requires a Standard U-100 Syringe.</strong><br>
+            Pull liquid to the <strong>${units.toFixed(1)}</strong> mark (or 0.0${volumeNeeded.toFixed(2).substring(2)} ml).`;
+    }
+</script>
+
+</body>
+</html>
