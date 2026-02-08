@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalyst Peptides | Premium Research Peptides</title>
+    <style>
+        /* --- COLOR SCHEME --- */
+        :root {
+            --primary-color: #0056b3; 
+            --secondary-color: #1a1a1a; 
+            --accent-color: #f8f9fa;
+            --text-color: #333;
+            --white: #ffffff;
+        }
+
+        /* --- BASIC STYLES --- */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--accent-color); color: var(--text-color); }
+        
+        /* --- HEADER & LOGO --- */
+        header { background-color: var(--white); padding: 15px 0; text-align: center; border-bottom: 4px solid var(--primary-color); }
+        .logo-img { max-height: 100px; width: auto; display: block; margin: 0 auto 10px; }
+        header h1 { margin: 0; font-size: 2rem; color: var(--secondary-color); letter-spacing: 2px; }
+        header p { margin: 5px 0 0; color: #666; font-weight: 500; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        /* --- NAVIGATION --- */
+        nav { background-color: var(--secondary-color); padding: 15px 0; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        nav a { color: var(--white); text-decoration: none; padding: 0 20px; font-weight: bold; font-size: 1.1rem; text-transform: uppercase; }
+        nav a:hover { color: var(--primary-color); }
+
+        /* --- ABOUT SECTION --- */
+        .about-section { background: var(--white); padding: 40px; border-radius: 8px; margin-top: 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .about-content { line-height: 1.8; color: #555; }
+        .about-content strong { color: var(--primary-color); }
+
+        /* --- PRODUCT GRID --- */
+        .section-title { text-align: center; margin-top: 50px; color: var(--primary-color); font-size: 2rem; text-transform: uppercase; letter-spacing: 1px; }
+        .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 25px; }
+        
+        .product-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; transition: transform 0.2s; border: 1px solid #eee; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+        
+        /* IMAGE STYLES */
+        .product-image { width: 100%; hieght: 250px; object-fit: cover; background-color: #f0f0f0; }
+        
+        .card-body { padding: 20px; }
+        .product-card h3 { color: var(--secondary-color); margin: 0 0 10px; font-size: 1.3rem; }
+        .price { font-size: 1.5rem; color: var(--primary-color); font-weight: bold; margin: 15px 0; }
+        .btn { background-color: var(--primary-color); color: var(--white); border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-size: 1rem; transition: background 0.3s; width: 100%; font-weight: bold; }
+        .btn:hover { background-color: #004494; }
+
+        /* --- CART, MODAL & FOOTER (Same as before) --- */
+        #cart-float { position: fixed; bottom: 20px; right: 20px; background: var(--secondary-color); color: var(--white); padding: 15px 25px; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-weight: bold; display: none; z-index: 200; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center; }
+        .modal-content { background: var(--white); padding: 30px; border-radius: 10px; width: 90%; max-width: 500px; max-height: 90vh; overflow-y: auto; position: relative; }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; color: #999; }
+        .cart-item { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding: 10px 0; }
+        .cart-total { font-size: 1.2rem; font-weight: bold; text-align: right; margin-top: 15px; border-top: 2px solid var(--secondary-color); padding-top: 10px; }
+        .bank-details { background-color: #e9ecef; padding: 15px; border-radius: 5px; margin-top: 20px; border-left: 5px solid var(--primary-color); }
+        .warning-text { color: #d9534f; font-size: 0.9rem; margin-top: 10px; font-style: italic; }
+        footer { background: var(--secondary-color); color: var(--white); text-align: center; padding: 30px 20px; margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Katalyst Peptides Logo" class="logo-img" onerror="this.style.display='none'">
+    <h1>KATALYST PEPTIDES</h1>
+    <p>Premium Research Solutions | South Africa</p>
+</header>
+
+<nav>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+
+    <section id="about" class="about-section">
+        <h2 style="color: var(--primary-color); border-bottom: 2px solid #eee; padding-bottom: 10px;">About Us</h2>
+        <div class="about-content">
+            <p>Welcome to <strong>Katalyst Peptides</strong>, your trusted source for premium research peptides in South Africa. We are dedicated to providing the highest purity products for laboratory and research use.</p>
+            <p>Based in the East Rand, we understand the importance of <strong>reliability, speed, and quality</strong>. Our products undergo rigorous selection to ensure you receive exactly what your research demands.</p>
+            <p>Whether you are researching <em>recovery, cognitive enhancement, or metabolic processes</em>, Katalyst Peptides is here to support your scientific endeavors with professional service and secure payment options.</p>
+        </div>
+    </section>
+
+    <h2 class="section-title" id="products">Our Catalogue</h2>
+    <div class="products" id="product-list">
+        </div>
+
+    <div style="text-align: center; margin: 60px 0;">
+        <h2>Customer Reviews</h2>
+        <p>See what our researchers are saying.</p>
+        <a href="#" target="_blank" class="btn" style="background-color: var(--secondary-color); display: inline-block; width: auto;">Leave a Review</a>
+    </div>
+
+    <div id="contact" style="text-align: center; margin-top: 60px; padding: 40px; background: #fff; border-radius: 8px;">
+        <h2 style="color: var(--primary-color);">Contact Us</h2>
+        <p><strong>Email:</strong> <a href="mailto:katalystpeptides@gmail.com">katalystpeptides@gmail.com</a></p>
+        <p><strong>Phone/WhatsApp:</strong> 061 529 9285</p>
+        <p><em>Germiston, South Africa</em></p>
+    </div>
+
+</div>
+
+<div id="cart-float" onclick="openCart()">🛒 View Cart (<span id="cart-count">0</span>)</div>
+
+<div class="modal" id="cart-modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeCart()">&times;</span>
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <div class="cart-total" id="cart-total">Total: R0.00</div>
+
+        <div id="checkout-section" style="display:none;">
+            <h3>Checkout & Payment</h3>
+            <p>Please make an EFT to the account below.</p>
+            <div class="bank-details">
+                <p><strong>Bank:</strong> Capitec Bank</p>
+                <p><strong>Holder:</strong> Katalyst Peptides</p>
+                <p><strong>Acc No:</strong> 2484559956</p>
+                <p><strong>Branch:</strong> Universal (470010)</p>
+                <p><strong>Reference:</strong> [Your Name/Order ID]</p>
+                <p class="warning-text">Note: Orders processed once funds reflect.</p>
+            </div>
+            <p style="margin-top: 15px;"><strong>Next Step:</strong> Send Proof of Payment to 061 529 9285.</p>
+            <button class="btn" onclick="sendWhatsAppOrder()" style="background-color: #25D366; margin-top: 10px;">Confirm via WhatsApp</button>
+        </div>
+        <button class="btn" id="proceed-btn" onclick="showCheckout()" style="width: 100%; margin-top: 20px;">Proceed to Checkout</button>
+    </div>
+</div>
+
+<footer><p>&copy; 2026 Katalyst Peptides. All rights reserved.</p></footer>
+
+<script>
+    /* --- PRODUCT DATA WITH IMAGES --- */
+    // Instructions: Rename your images to match the filenames below (e.g., bpc157.jpg) 
+    // and place them in the same folder as this file.
+    const products = [
+        { name: "BPC157 (10mg)", price: 450.00, img: "bpc157.jpg" },
+        { name: "IGF1-LR3 (100mcg)", price: 400.00, img: "igf1.jpg" },
+        { name: "Semax (5mg)", price: 450.00, img: "semax.jpg" },
+        { name: "Selank (5mg)", price: 450.00, img: "selank.jpg" },
+        { name: "Semaglutide (5mg)", price: 600.00, img: "semaglutide.jpg" },
+        { name: "Tirzepatide (10mg)", price: 750.00, img: "tirzepatide.jpg" },
+        { name: "Retatrutide (50mg)", price: 1850.00, img: "reta50.jpg" },
+        { name: "Retatrutide (30mg)", price: 1450.00, img: "reta30.jpg" },
+        { name: "GHK-CU (100mg)", price: 450.00, img: "ghkcu.jpg" },
+        { name: "Mots-C (40mg)", price: 900.00, img: "motsc.jpg" },
+        { name: "Wolverine Stack (20mg)", price: 750.00, img: "wolverine.jpg" },
+        { name: "SLU PP-332 (5mg)", price: 500.00, img: "slupp332.jpg" },
+        { name: "Syringes", price: 50.00, img: "syringes.jpg" }
+    ];
+
+    let cart = [];
+
+    // --- RENDER FUNCTION ---
+    const productList = document.getElementById('product-list');
+    products.forEach((product, index) => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        // This line checks if the image loads. If not, it uses a placeholder.
+        const imgSrc = product.img; 
+        
+        card.innerHTML = `
+            <img src="${imgSrc}" alt="${product.name}" class="product-image" onerror="this.src='https://placehold.co/300x250?text=No+Image'">
+            <div class="card-body">
+                <h3>${product.name}</h3>
+                <div class="price">R${product.price.toFixed(2)}</div>
+                <button class="btn" onclick="addToCart(${index})">Add to Cart</button>
+            </div>
+        `;
+        productList.appendChild(card);
+    });
+
+    // --- CART LOGIC (Same as before) ---
+    function addToCart(index) {
+        cart.push(products[index]);
+        updateCartUI();
+        alert(`${products[index].name} added to cart!`);
+    }
+
+    function updateCartUI() {
+        document.getElementById('cart-count').innerText = cart.length;
+        if(cart.length > 0) document.getElementById('cart-float').style.display = 'block';
+    }
+
+    function openCart() {
+        const cartItemsDiv = document.getElementById('cart-items');
+        cartItemsDiv.innerHTML = '';
+        let total = 0;
+        if (cart.length === 0) {
+            cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
+            document.getElementById('proceed-btn').style.display = 'none';
+        } else {
+            cart.forEach((item, index) => {
+                total += item.price;
+                cartItemsDiv.innerHTML += `<div class="cart-item"><span>${item.name}</span><span>R${item.price.toFixed(2)} <a href="#" onclick="removeFromCart(${index})" style="color:red;margin-left:10px;">&times;</a></span></div>`;
+            });
+            document.getElementById('proceed-btn').style.display = 'block';
+        }
+        document.getElementById('cart-total').innerText = 'Total: R' + total.toFixed(2);
+        document.getElementById('cart-modal').style.display = 'flex';
+        document.getElementById('checkout-section').style.display = 'none';
+    }
+
+    function removeFromCart(index) { cart.splice(index, 1); openCart(); updateCartUI(); }
+    function closeCart() { document.getElementById('cart-modal').style.display = 'none'; }
+    function showCheckout() { document.getElementById('cart-items').style.display = 'none'; document.getElementById('proceed-btn').style.display = 'none'; document.getElementById('checkout-section').style.display = 'block'; }
+    
+    function sendWhatsAppOrder() {
+        let message = "Hi, I would like to place an order for:\n";
+        let total = 0;
+        cart.forEach(item => { message += `- ${item.name} (R${item.price})\n`; total += item.price; });
+        message += `\nTotal: R${total.toFixed(2)}`;
+        message += "\n\nI will send the Proof of Payment shortly.";
+        window.open(`https://wa.me/27615299285?text=${encodeURIComponent(message)}`, '_blank');
+    }
+</script>
+
+</body>
+</html>
