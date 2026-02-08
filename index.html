@@ -13,6 +13,8 @@
             --accent-color: #f8f9fa;
             --text-color: #333;
             --white: #ffffff;
+            --gold: #ffc107;
+            --red: #dc3545;
         }
 
         /* --- BASIC STYLES --- */
@@ -40,8 +42,46 @@
         .section-title { text-align: center; margin-top: 50px; color: var(--primary-color); font-size: 2rem; text-transform: uppercase; letter-spacing: 1px; }
         .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 25px; }
         
-        .product-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; transition: transform 0.2s; border: 1px solid #eee; }
+        /* Product Card & Badge Styles */
+        .product-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; transition: transform 0.2s; border: 1px solid #eee; position: relative; }
         .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 10;
+            letter-spacing: 0.5px;
+        }
+
+        /* Badge Colors */
+        .badge-trust { background-color: #f0f7ff; color: var(--primary-color); border: 1px solid var(--primary-color); }
+        
+        .badge-gold { 
+            background-color: #fff3cd; 
+            color: #856404; 
+            border: 1px solid #ffeeba; 
+            box-shadow: 0 0 10px rgba(255, 193, 7, 0.4);
+        }
+
+        .badge-scarcity {
+            background-color: #fff5f5;
+            color: #d32f2f;
+            border: 1px solid #d32f2f;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
         
         /* IMAGE STYLES */
         .product-image { width: 100%; height: 250px; object-fit: cover; background-color: #f0f0f0; }
@@ -74,7 +114,8 @@
 
 <nav>
     <a href="index.html">Products</a>
-    <a href="articles.html">Articles</a> <a href="#about">About</a>
+    <a href="articles.html">Articles</a>
+    <a href="#about">About</a>
     <a href="#contact">Contact</a>
 </nav>
 
@@ -152,19 +193,19 @@
 <script>
     /* --- PRODUCT DATA --- */
     const products = [
-        { name: "BPC157", price: 450.00, img: "bpc157.jpg" },
-        { name: "IGF1-LR3", price: 400.00, img: "igf1.jpg" },
-        { name: "Semax", price: 450.00, img: "semax.jpg" },
-        { name: "Selank", price: 450.00, img: "selank.jpg" },
-        { name: "Semaglutide", price: 600.00, img: "semaglutide.jpg" },
-        { name: "Tirzepatide", price: 750.00, img: "tirzepatide.jpg" },
-        { name: "Retatrutide (50mg)", price: 1850.00, img: "reta50.jpg" },
-        { name: "Retatrutide (30mg)", price: 1450.00, img: "reta30.jpg" },
-        { name: "GHK-CU (100mg)", price: 450.00, img: "ghkcu.jpg" },
-        { name: "Mots-C (40mg)", price: 900.00, img: "motsc.jpg" },
-        { name: "Wolverine Stack", price: 750.00, img: "wolverine.jpg" },
-        { name: "SLU PP-332", price: 500.00, img: "slupp332.jpg" },
-        { name: "Syringes", price: 32.90, img: "syringes.jpg" }
+        { name: "BPC157", price: 450.00, img: "bpc157.jpg", badge: null, type: null },
+        { name: "IGF1-LR3", price: 400.00, img: "igf1.jpg", badge: null, type: null },
+        { name: "Semax", price: 450.00, img: "semax.jpg", badge: "Nootropic", type: "trust" },
+        { name: "Selank", price: 450.00, img: "selank.jpg", badge: "Anxiolytic", type: "trust" },
+        { name: "Semaglutide", price: 600.00, img: "semaglutide.jpg", badge: "Fat Loss", type: "trust" },
+        { name: "Tirzepatide", price: 750.00, img: "tirzepatide.jpg", badge: "Gold Std", type: "trust" },
+        { name: "Retatrutide (50mg)", price: 1850.00, img: "reta50.jpg", badge: "Best Seller", type: "gold" },
+        { name: "Retatrutide (30mg)", price: 1450.00, img: "reta30.jpg", badge: "Limited Stock", type: "scarcity" },
+        { name: "GHK-CU (100mg)", price: 450.00, img: "ghkcu.jpg", badge: "Anti-Aging", type: "trust" },
+        { name: "Mots-C (40mg)", price: 900.00, img: "motsc.jpg", badge: "Mitochondrial", type: "trust" },
+        { name: "Wolverine Stack", price: 750.00, img: "wolverine.jpg", badge: "Recovery", type: "trust" },
+        { name: "SLU PP-332", price: 500.00, img: "slupp332.jpg", badge: "New Arrival", type: "trust" },
+        { name: "Syringes", price: 32.90, img: "syringes.jpg", badge: "Essential", type: "trust" }
     ];
 
     let cart = [];
@@ -176,7 +217,16 @@
         card.className = 'product-card';
         const imgSrc = product.img; 
         
+        let badgeHTML = '';
+        if (product.badge) {
+            let badgeClass = 'badge-trust';
+            if (product.type === 'scarcity') badgeClass = 'badge-scarcity';
+            if (product.type === 'gold') badgeClass = 'badge-gold';
+            badgeHTML = `<div class="badge ${badgeClass}">${product.badge}</div>`;
+        }
+        
         card.innerHTML = `
+            ${badgeHTML}
             <img src="${imgSrc}" alt="${product.name}" class="product-image" onerror="this.src='https://placehold.co/300x250?text=No+Image'">
             <div class="card-body">
                 <h3>${product.name}</h3>
@@ -233,5 +283,5 @@
 </script>
 
 </body>
-    </html>
-            
+        </html>
+    
