@@ -8,10 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
-        /* --- THEME CONFIGURATION --- */
         :root {
-            --primary: #0a2540; /* Deep Navy */
-            --accent: #007bff; /* Clinical Blue */
+            --primary: #0a2540; 
+            --accent: #007bff; 
             --bg-light: #f8f9fc;
             --white: #ffffff;
             --gold: #c5a059;
@@ -21,12 +20,10 @@
         body { font-family: 'Open Sans', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.8; }
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: var(--primary); }
 
-        /* --- NAVIGATION --- */
         nav { background-color: var(--white); padding: 15px 0; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         nav a { color: var(--primary); text-decoration: none; padding: 0 20px; font-weight: 600; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
         nav a:hover { color: var(--accent); }
 
-        /* --- ARTICLE HEADER --- */
         .article-hero {
             background: linear-gradient(135deg, var(--primary) 0%, #004e92 100%);
             color: var(--white);
@@ -36,7 +33,6 @@
         .article-hero h1 { color: var(--white); font-size: 2.5rem; margin-bottom: 10px; }
         .meta-data { font-size: 0.9rem; opacity: 0.8; font-style: italic; }
 
-        /* --- CONTENT CONTAINER --- */
         .container { max-width: 800px; margin: -40px auto 60px; padding: 0 20px; position: relative; z-index: 10; }
         
         article { 
@@ -51,7 +47,6 @@
         ul { margin-bottom: 30px; }
         li { margin-bottom: 10px; padding-left: 10px; }
 
-        /* --- CTA BOX --- */
         .cta-box { 
             background: #f0f7ff; 
             border: 2px solid var(--accent); 
@@ -74,7 +69,6 @@
         }
         .btn-cta:hover { background-color: #0056b3; transform: scale(1.05); }
 
-        /* --- FOOTER --- */
         footer { background: var(--primary); color: #8fa6b8; text-align: center; padding: 50px 20px; margin-top: 80px; font-size: 0.9rem; }
     </style>
 </head>
@@ -82,6 +76,7 @@
 
 <nav>
     <a href="index.html">Catalogue</a>
+    <a href="calculator.html">Calculator</a>
     <a href="articles.html" style="color: var(--accent);">Research Hub</a>
     <a href="index.html#faq">FAQ</a>
     <a href="index.html#contact">Contact</a>
