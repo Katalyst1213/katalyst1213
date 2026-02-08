@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalyst Peptides | Premium Research Peptides</title>
+    <title>Buy Peptides South Africa | BPC-157, Retatrutide, GHK-CU | Katalyst Peptides</title>
+    <meta name="description" content="South Africa's trusted supplier of research peptides. High purity BPC-157, Retatrutide, and more. Fast delivery in JHB, Cape Town & Durban.">
     <style>
         /* --- COLOR SCHEME --- */
         :root {
@@ -26,11 +27,9 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         
         /* --- NAVIGATION --- */
-        <nav>
-    <a href="index.html">Products</a>
-    <a href="articles.html">Articles</a> <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-</nav>
+        nav { background-color: var(--secondary-color); padding: 15px 0; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        nav a { color: var(--white); text-decoration: none; padding: 0 20px; font-weight: bold; font-size: 1.1rem; text-transform: uppercase; }
+        nav a:hover { color: var(--primary-color); }
 
         /* --- ABOUT SECTION --- */
         .about-section { background: var(--white); padding: 40px; border-radius: 8px; margin-top: 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
@@ -45,7 +44,7 @@
         .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
         
         /* IMAGE STYLES */
-        .product-image { width: 100%; hieght: 250px; object-fit: cover; background-color: #f0f0f0; }
+        .product-image { width: 100%; height: 250px; object-fit: cover; background-color: #f0f0f0; }
         
         .card-body { padding: 20px; }
         .product-card h3 { color: var(--secondary-color); margin: 0 0 10px; font-size: 1.3rem; }
@@ -53,7 +52,7 @@
         .btn { background-color: var(--primary-color); color: var(--white); border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-size: 1rem; transition: background 0.3s; width: 100%; font-weight: bold; }
         .btn:hover { background-color: #004494; }
 
-        /* --- CART, MODAL & FOOTER (Same as before) --- */
+        /* --- CART, MODAL & FOOTER --- */
         #cart-float { position: fixed; bottom: 20px; right: 20px; background: var(--secondary-color); color: var(--white); padding: 15px 25px; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-weight: bold; display: none; z-index: 200; }
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center; }
         .modal-content { background: var(--white); padding: 30px; border-radius: 10px; width: 90%; max-width: 500px; max-height: 90vh; overflow-y: auto; position: relative; }
@@ -74,8 +73,8 @@
 </header>
 
 <nav>
-    <a href="#products">Products</a>
-    <a href="#about">About</a>
+    <a href="index.html">Products</a>
+    <a href="articles.html">Articles</a> <a href="#about">About</a>
     <a href="#contact">Contact</a>
 </nav>
 
@@ -97,7 +96,19 @@
     <div style="text-align: center; margin: 60px 0;">
         <h2>Customer Reviews</h2>
         <p>See what our researchers are saying.</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxnCRixTsOTGMTE-ZtPWD7qDD7A33FLJzLmaynG2er_yu4VQ/viewform?usp=sharing&ouid=104849260455570949171" target="_blank" class="btn" style="background-color: var(--secondary-color); display: inline-block; width: auto;">Leave a Review</a>
+        <div class="reviews-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; text-align: left; margin-bottom: 30px;">
+            <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                <div style="color: #f39c12; margin-bottom: 10px;">★★★★★</div>
+                <p style="font-style: italic; margin-bottom: 15px;">"Great service! My order for BPC-157 arrived in 2 days. The packaging was professional and discreet."</p>
+                <strong style="color: var(--secondary-color);">- Shaun M.</strong>
+            </div>
+            <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                <div style="color: #f39c12; margin-bottom: 10px;">★★★★★</div>
+                <p style="font-style: italic; margin-bottom: 15px;">"Best pricing on Semaglutide I've found in SA. Will definitely order again."</p>
+                <strong style="color: var(--secondary-color);">- David K.</strong>
+            </div>
+        </div>
+        <a href="#" target="_blank" class="btn" style="background-color: var(--secondary-color); display: inline-block; width: auto;">Leave a Review</a>
     </div>
 
     <div id="contact" style="text-align: center; margin-top: 60px; padding: 40px; background: #fff; border-radius: 8px;">
@@ -139,23 +150,21 @@
 <footer><p>&copy; 2026 Katalyst Peptides. All rights reserved.</p></footer>
 
 <script>
-    /* --- PRODUCT DATA WITH IMAGES --- */
-    // Instructions: Rename your images to match the filenames below (e.g., bpc157.jpg) 
-    // and place them in the same folder as this file.
+    /* --- PRODUCT DATA --- */
     const products = [
-        { name: "BPC157 (10mg)", price: 450.00, img: "bpc157.jpg" },
-        { name: "IGF1-LR3 (100mcg)", price: 400.00, img: "igf1.jpg" },
-        { name: "Semax (5mg)", price: 450.00, img: "semax.jpg" },
-        { name: "Selank (5mg)", price: 450.00, img: "selank.jpg" },
-        { name: "Semaglutide (5mg)", price: 600.00, img: "semaglutide.jpg" },
-        { name: "Tirzepatide (10mg)", price: 750.00, img: "tirzepatide.jpg" },
+        { name: "BPC157", price: 450.00, img: "bpc157.jpg" },
+        { name: "IGF1-LR3", price: 400.00, img: "igf1.jpg" },
+        { name: "Semax", price: 450.00, img: "semax.jpg" },
+        { name: "Selank", price: 450.00, img: "selank.jpg" },
+        { name: "Semaglutide", price: 600.00, img: "semaglutide.jpg" },
+        { name: "Tirzepatide", price: 750.00, img: "tirzepatide.jpg" },
         { name: "Retatrutide (50mg)", price: 1850.00, img: "reta50.jpg" },
         { name: "Retatrutide (30mg)", price: 1450.00, img: "reta30.jpg" },
         { name: "GHK-CU (100mg)", price: 450.00, img: "ghkcu.jpg" },
         { name: "Mots-C (40mg)", price: 900.00, img: "motsc.jpg" },
-        { name: "Wolverine Stack (20mg)", price: 750.00, img: "wolverine.jpg" },
-        { name: "SLU PP-332 (5mg)", price: 500.00, img: "slupp332.jpg" },
-        { name: "Syringes", price: 50.00, img: "syringes.jpg" }
+        { name: "Wolverine Stack", price: 750.00, img: "wolverine.jpg" },
+        { name: "SLU PP-332", price: 500.00, img: "slupp332.jpg" },
+        { name: "Syringes", price: 32.90, img: "syringes.jpg" }
     ];
 
     let cart = [];
@@ -165,7 +174,6 @@
     products.forEach((product, index) => {
         const card = document.createElement('div');
         card.className = 'product-card';
-        // This line checks if the image loads. If not, it uses a placeholder.
         const imgSrc = product.img; 
         
         card.innerHTML = `
@@ -179,7 +187,7 @@
         productList.appendChild(card);
     });
 
-    // --- CART LOGIC (Same as before) ---
+    // --- CART LOGIC ---
     function addToCart(index) {
         cart.push(products[index]);
         updateCartUI();
@@ -225,4 +233,5 @@
 </script>
 
 </body>
-</html>
+    </html>
+            
