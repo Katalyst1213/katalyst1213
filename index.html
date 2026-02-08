@@ -3,18 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buy Peptides South Africa | BPC-157, Retatrutide | Katalyst Peptides</title>
+    <title>Buy Peptides South Africa | Katalyst Peptides</title>
     <meta name="description" content="South Africa's trusted supplier of research peptides. High purity BPC-157, Retatrutide, and more. Fast delivery in JHB, Cape Town & Durban.">
+    
+    <meta property="og:title" content="Katalyst Peptides SA | Premium Research Solutions">
+    <meta property="og:description" content="Verified Purity >99%. Fast Shipping. Research Peptides, Calculators & Protocols.">
+    <meta property="og:image" content="https://katalystpeptides.co.za/logo.png">
+    <meta property="og:url" content="https://katalystpeptides.co.za">
+    <meta property="og:type" content="website">
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
+        /* --- THEME --- */
         :root {
             --primary: #0a2540; /* Deep Navy */
             --accent: #007bff; /* Clinical Blue */
             --bg-light: #f8f9fc;
             --white: #ffffff;
             --gold: #c5a059;
-            --red: #e63946;
+            --red: #dc3545;
+            --green: #25d366;
             --text-dark: #1b263b;
         }
 
@@ -45,7 +55,7 @@
 
         /* NAV */
         nav { background-color: var(--white); padding: 15px 0; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        nav a { color: var(--primary); text-decoration: none; padding: 0 20px; font-weight: 600; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
+        nav a { color: var(--primary); text-decoration: none; padding: 0 15px; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.3s; }
         nav a:hover { color: var(--accent); }
 
         /* TRUST ICONS */
@@ -56,8 +66,14 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
+        /* SEARCH BAR */
+        .search-container { max-width: 600px; margin: 40px auto 20px; position: relative; }
+        .search-input { width: 100%; padding: 15px 20px 15px 50px; border: 2px solid #eee; border-radius: 50px; font-size: 1rem; box-sizing: border-box; transition: border-color 0.3s; }
+        .search-input:focus { border-color: var(--accent); outline: none; }
+        .search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #999; }
+
         /* PRODUCTS */
-        .section-header { text-align: center; margin: 60px 0 40px; }
+        .section-header { text-align: center; margin: 40px 0; }
         .section-header h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 10px; }
         .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         
@@ -111,10 +127,23 @@
         footer { background: var(--primary); color: #8fa6b8; text-align: center; padding: 50px 20px; margin-top: 80px; font-size: 0.9rem; }
         footer a { color: var(--white); text-decoration: none; border-bottom: 1px dotted #8fa6b8; }
 
-        /* CART */
+        /* FLOATING WHATSAPP */
+        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 30px; left: 30px; background-color: var(--green); color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 100; display: flex; align-items: center; justify-content: center; transition: transform 0.3s; text-decoration: none; }
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #128C7E; }
+
+        /* CART & TOAST */
         #cart-float { position: fixed; bottom: 30px; right: 30px; background: var(--accent); color: white; padding: 15px 25px; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 20px rgba(0,123,255,0.4); font-weight: 700; z-index: 200; display: none; transition: transform 0.2s; }
         #cart-float:hover { transform: scale(1.1); }
         
+        .toast { visibility: hidden; min-width: 250px; margin-left: -125px; background-color: #333; color: #fff; text-align: center; border-radius: 50px; padding: 16px; position: fixed; z-index: 1000; left: 50%; bottom: 30px; font-size: 17px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .toast.show { visibility: visible; -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
+        
+        @-webkit-keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @-webkit-keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+
+        /* MODAL */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
         .modal-content { background: white; padding: 40px; border-radius: 12px; width: 90%; max-width: 480px; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
     </style>
@@ -157,7 +186,10 @@
 
     <div class="section-header" id="products">
         <h2>Research Catalogue</h2>
-        <p>Select your compounds below.</p>
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search for compounds (e.g. Retatrutide, Fat Loss...)" onkeyup="filterProducts()">
+        </div>
     </div>
 
     <div class="products" id="product-list">
@@ -195,7 +227,9 @@
     <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 10px;">Disclaimer: Products are for research use only.</p>
 </footer>
 
+<a href="https://wa.me/27615299285" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 <div id="cart-float" onclick="openCart()">🛒 <span id="cart-count">0</span></div>
+<div id="toast" class="toast">Added to Cart</div>
 
 <div class="modal" id="cart-modal">
     <div class="modal-content">
@@ -234,32 +268,44 @@
     ];
 
     let cart = [];
-
     const list = document.getElementById('product-list');
-    products.forEach((p, i) => {
-        let badgeHTML = '';
-        if(p.badge) {
-            let bClass = 'badge-trust';
-            if(p.type === 'gold') bClass = 'badge-gold';
-            if(p.type === 'scarcity') bClass = 'badge-scarcity';
-            badgeHTML = `<div class="badge ${bClass}">${p.badge}</div>`;
-        }
 
-        list.innerHTML += `
-            <div class="product-card">
-                ${badgeHTML}
-                <img src="${p.img}" class="product-image" onerror="this.src='https://placehold.co/300x250?text=${p.name}'">
-                <div class="card-body">
-                    <h3>${p.name}</h3>
-                    <div class="product-desc">${p.desc}</div>
-                    <div class="price-row">
-                        <div class="price">R${p.price.toFixed(2)}</div>
-                        <button class="btn-add" onclick="addToCart(${i})">Add +</button>
+    function renderProducts(filterText = '') {
+        list.innerHTML = '';
+        products.forEach((p, i) => {
+            if (filterText && !p.name.toLowerCase().includes(filterText) && !p.desc.toLowerCase().includes(filterText)) return;
+            
+            let badgeHTML = '';
+            if(p.badge) {
+                let bClass = 'badge-trust';
+                if(p.type === 'gold') bClass = 'badge-gold';
+                if(p.type === 'scarcity') bClass = 'badge-scarcity';
+                badgeHTML = `<div class="badge ${bClass}">${p.badge}</div>`;
+            }
+
+            list.innerHTML += `
+                <div class="product-card">
+                    ${badgeHTML}
+                    <img src="${p.img}" class="product-image" onerror="this.src='https://placehold.co/300x250?text=${p.name}'">
+                    <div class="card-body">
+                        <h3>${p.name}</h3>
+                        <div class="product-desc">${p.desc}</div>
+                        <div class="price-row">
+                            <div class="price">R${p.price.toFixed(2)}</div>
+                            <button class="btn-add" onclick="addToCart(${i})">Add +</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        `;
-    });
+            `;
+        });
+    }
+
+    renderProducts();
+
+    function filterProducts() {
+        const input = document.getElementById('searchInput').value.toLowerCase();
+        renderProducts(input);
+    }
 
     function toggleFaq(element) {
         element.classList.toggle('active');
@@ -267,7 +313,19 @@
         toggle.innerText = element.classList.contains('active') ? '-' : '+';
     }
 
-    function addToCart(i) { cart.push(products[i]); updateCart(); }
+    function addToCart(i) { 
+        cart.push(products[i]); 
+        updateCart(); 
+        showToast(`${products[i].name} added to cart`);
+    }
+
+    function showToast(message) {
+        const toast = document.getElementById("toast");
+        toast.innerText = message;
+        toast.className = "toast show";
+        setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+    }
+
     function updateCart() {
         document.getElementById('cart-count').innerText = cart.length;
         document.getElementById('cart-float').style.display = cart.length > 0 ? 'block' : 'none';
@@ -314,4 +372,5 @@
 </script>
 
 </body>
-</html>
+        </html>
+    
