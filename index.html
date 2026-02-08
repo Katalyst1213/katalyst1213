@@ -3,285 +3,331 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buy Peptides South Africa | BPC-157, Retatrutide, GHK-CU | Katalyst Peptides</title>
+    <title>Buy Peptides South Africa | BPC-157, Retatrutide | Katalyst Peptides</title>
     <meta name="description" content="South Africa's trusted supplier of research peptides. High purity BPC-157, Retatrutide, and more. Fast delivery in JHB, Cape Town & Durban.">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
     <style>
-        /* --- COLOR SCHEME --- */
+        /* --- THEME CONFIGURATION --- */
         :root {
-            --primary-color: #0056b3; 
-            --secondary-color: #1a1a1a; 
-            --accent-color: #f8f9fa;
-            --text-color: #333;
+            --primary: #0a2540; /* Deep Navy (Trust) */
+            --accent: #007bff; /* Clinical Blue (Action) */
+            --bg-light: #f8f9fc;
             --white: #ffffff;
-            --gold: #ffc107;
-            --red: #dc3545;
+            --gold: #c5a059;
+            --red: #e63946;
+            --text-dark: #1b263b;
         }
 
-        /* --- BASIC STYLES --- */
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--accent-color); color: var(--text-color); }
-        
-        /* --- HEADER & LOGO --- */
-        header { background-color: var(--white); padding: 15px 0; text-align: center; border-bottom: 4px solid var(--primary-color); }
-        .logo-img { max-height: 100px; width: auto; display: block; margin: 0 auto 10px; }
-        header h1 { margin: 0; font-size: 2rem; color: var(--secondary-color); letter-spacing: 2px; }
-        header p { margin: 5px 0 0; color: #666; font-weight: 500; }
-        
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        
-        /* --- NAVIGATION --- */
-        nav { background-color: var(--secondary-color); padding: 15px 0; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        nav a { color: var(--white); text-decoration: none; padding: 0 20px; font-weight: bold; font-size: 1.1rem; text-transform: uppercase; }
-        nav a:hover { color: var(--primary-color); }
+        body { font-family: 'Open Sans', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
 
-        /* --- ABOUT SECTION --- */
-        .about-section { background: var(--white); padding: 40px; border-radius: 8px; margin-top: 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .about-content { line-height: 1.8; color: #555; }
-        .about-content strong { color: var(--primary-color); }
-
-        /* --- PRODUCT GRID --- */
-        .section-title { text-align: center; margin-top: 50px; color: var(--primary-color); font-size: 2rem; text-transform: uppercase; letter-spacing: 1px; }
-        .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 25px; }
-        
-        /* Product Card & Badge Styles */
-        .product-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; transition: transform 0.2s; border: 1px solid #eee; position: relative; }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-
-        .badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 0.75rem;
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #004e92 100%);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .hero h1 { margin: 0; font-size: 2.8rem; font-weight: 800; letter-spacing: 1px; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; margin: 15px 0 30px; }
+        .hero-btn {
+            background-color: var(--gold);
+            color: var(--primary);
+            padding: 15px 35px;
+            text-decoration: none;
             font-weight: 800;
+            border-radius: 50px;
             text-transform: uppercase;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            z-index: 10;
-            letter-spacing: 0.5px;
+            transition: transform 0.2s;
+            display: inline-block;
         }
+        .hero-btn:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
 
-        /* Badge Colors */
-        .badge-trust { background-color: #f0f7ff; color: var(--primary-color); border: 1px solid var(--primary-color); }
+        /* --- NAVIGATION --- */
+        nav { background-color: var(--white); padding: 15px 0; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        nav a { color: var(--primary); text-decoration: none; padding: 0 20px; font-weight: 600; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
+        nav a:hover { color: var(--accent); }
+
+        /* --- TRUST ICONS --- */
+        .features { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 40px 20px; background: var(--white); border-bottom: 1px solid #eee; }
+        .feature-box { text-align: center; max-width: 250px; }
+        .feature-icon { font-size: 2rem; color: var(--accent); margin-bottom: 10px; }
+        .feature-title { font-weight: 800; margin-bottom: 5px; color: var(--primary); }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        /* --- PRODUCTS GRID --- */
+        .section-header { text-align: center; margin: 60px 0 40px; }
+        .section-header h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 10px; }
+        .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         
-        .badge-gold { 
-            background-color: #fff3cd; 
-            color: #856404; 
-            border: 1px solid #ffeeba; 
-            box-shadow: 0 0 10px rgba(255, 193, 7, 0.4);
+        .product-card { 
+            background: var(--white); 
+            border-radius: 15px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+            position: relative; 
+            border: 1px solid rgba(0,0,0,0.03);
         }
-
-        .badge-scarcity {
-            background-color: #fff5f5;
-            color: #d32f2f;
-            border: 1px solid #d32f2f;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
+        .product-card:hover { transform: translateY(-7px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
         
-        /* IMAGE STYLES */
-        .product-image { width: 100%; height: 250px; object-fit: cover; background-color: #f0f0f0; }
+        /* Badges */
+        .badge { position: absolute; top: 15px; right: 15px; padding: 5px 12px; border-radius: 4px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; z-index: 10; letter-spacing: 0.5px; }
+        .badge-gold { background: var(--gold); color: #fff; box-shadow: 0 4px 10px rgba(197, 160, 89, 0.4); }
+        .badge-scarcity { background: var(--red); color: white; animation: pulse 2s infinite; }
+        .badge-trust { background: var(--accent); color: white; }
         
-        .card-body { padding: 20px; }
-        .product-card h3 { color: var(--secondary-color); margin: 0 0 10px; font-size: 1.3rem; }
-        .price { font-size: 1.5rem; color: var(--primary-color); font-weight: bold; margin: 15px 0; }
-        .btn { background-color: var(--primary-color); color: var(--white); border: none; padding: 12px 25px; border-radius: 50px; cursor: pointer; font-size: 1rem; transition: background 0.3s; width: 100%; font-weight: bold; }
-        .btn:hover { background-color: #004494; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.8; } 100% { opacity: 1; } }
 
-        /* --- CART, MODAL & FOOTER --- */
-        #cart-float { position: fixed; bottom: 20px; right: 20px; background: var(--secondary-color); color: var(--white); padding: 15px 25px; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-weight: bold; display: none; z-index: 200; }
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center; }
-        .modal-content { background: var(--white); padding: 30px; border-radius: 10px; width: 90%; max-width: 500px; max-height: 90vh; overflow-y: auto; position: relative; }
-        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; color: #999; }
-        .cart-item { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding: 10px 0; }
-        .cart-total { font-size: 1.2rem; font-weight: bold; text-align: right; margin-top: 15px; border-top: 2px solid var(--secondary-color); padding-top: 10px; }
-        .bank-details { background-color: #e9ecef; padding: 15px; border-radius: 5px; margin-top: 20px; border-left: 5px solid var(--primary-color); }
-        .warning-text { color: #d9534f; font-size: 0.9rem; margin-top: 10px; font-style: italic; }
-        footer { background: var(--secondary-color); color: var(--white); text-align: center; padding: 30px 20px; margin-top: 60px; }
+        .product-image { width: 100%; height: 260px; object-fit: cover; background: #f0f0f0; }
+        
+        .card-body { padding: 25px; text-align: left; }
+        .product-card h3 { color: var(--primary); margin: 0 0 5px; font-size: 1.25rem; font-weight: 700; }
+        .product-desc { font-size: 0.85rem; color: #777; margin-bottom: 15px; font-style: italic; }
+        .price-row { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
+        .price { font-size: 1.4rem; color: var(--primary); font-weight: 800; }
+        
+        .btn-add { 
+            background-color: var(--accent); 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 8px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: background 0.2s;
+        }
+        .btn-add:hover { background-color: #0056b3; }
+
+        /* --- FAQ SECTION --- */
+        .faq-section { max-width: 800px; margin: 80px auto; padding: 20px; }
+        .faq-item { background: var(--white); margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); overflow: hidden; }
+        .faq-question { padding: 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center; background: #fff; }
+        .faq-answer { padding: 0 20px 20px; color: #555; display: none; border-top: 1px solid #eee; padding-top: 15px; }
+        .faq-item.active .faq-answer { display: block; }
+        .faq-toggle { font-size: 1.2rem; color: var(--accent); }
+
+        /* --- FOOTER --- */
+        footer { background: var(--primary); color: #8fa6b8; text-align: center; padding: 50px 20px; margin-top: 80px; font-size: 0.9rem; }
+        footer a { color: var(--white); text-decoration: none; border-bottom: 1px dotted #8fa6b8; }
+
+        /* --- CART FLOATING BUTTON --- */
+        #cart-float { position: fixed; bottom: 30px; right: 30px; background: var(--accent); color: white; padding: 15px 25px; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 20px rgba(0,123,255,0.4); font-weight: 700; z-index: 200; display: none; transition: transform 0.2s; }
+        #cart-float:hover { transform: scale(1.1); }
+        
+        /* MODAL */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
+        .modal-content { background: white; padding: 40px; border-radius: 12px; width: 90%; max-width: 480px; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
     </style>
 </head>
 <body>
 
-<header>
-    <img src="logo.png" alt="Katalyst Peptides Logo" class="logo-img" onerror="this.style.display='none'">
-    <h1>KATALYST PEPTIDES</h1>
-    <p>Premium Research Solutions | South Africa</p>
-</header>
-
 <nav>
-    <a href="index.html">Products</a>
-    <a href="articles.html">Articles</a>
-    <a href="#about">About</a>
+    <a href="index.html">Catalogue</a>
+    <a href="articles.html">Research Hub</a>
+    <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
 </nav>
 
+<div class="hero">
+    <h1>KATALYST PEPTIDES</h1>
+    <p>Premium Grade Research Solutions | >99% Purity Verified</p>
+    <a href="#products" class="hero-btn">View Catalogue</a>
+</div>
+
+<div class="features">
+    <div class="feature-box">
+        <div class="feature-icon">🚀</div>
+        <div class="feature-title">Fast Shipping</div>
+        <div style="font-size: 0.9rem; color:#666;">Next-day delivery across Gauteng.</div>
+    </div>
+    <div class="feature-box">
+        <div class="feature-icon">🧪</div>
+        <div class="feature-title">Lab Tested</div>
+        <div style="font-size: 0.9rem; color:#666;">High purity guaranteed.</div>
+    </div>
+    <div class="feature-box">
+        <div class="feature-icon">🔒</div>
+        <div class="feature-title">Secure & Private</div>
+        <div style="font-size: 0.9rem; color:#666;">Discreet packaging & EFT payment.</div>
+    </div>
+</div>
+
 <div class="container">
 
-    <section id="about" class="about-section">
-        <h2 style="color: var(--primary-color); border-bottom: 2px solid #eee; padding-bottom: 10px;">About Us</h2>
-        <div class="about-content">
-            <p>Welcome to <strong>Katalyst Peptides</strong>, your trusted source for premium research peptides in South Africa. We are dedicated to providing the highest purity products for laboratory and research use.</p>
-            <p>Based in the East Rand, we understand the importance of <strong>reliability, speed, and quality</strong>. Our products undergo rigorous selection to ensure you receive exactly what your research demands.</p>
-            <p>Whether you are researching <em>recovery, cognitive enhancement, or metabolic processes</em>, Katalyst Peptides is here to support your scientific endeavors with professional service and secure payment options.</p>
-        </div>
-    </section>
+    <div class="section-header" id="products">
+        <h2>Research Catalogue</h2>
+        <p>Select your compounds below.</p>
+    </div>
 
-    <h2 class="section-title" id="products">Our Catalogue</h2>
     <div class="products" id="product-list">
         </div>
 
-    <div style="text-align: center; margin: 60px 0;">
-        <h2>Customer Reviews</h2>
-        <p>See what our researchers are saying.</p>
-        <div class="reviews-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; text-align: left; margin-bottom: 30px;">
-            <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-color);">
-                <div style="color: #f39c12; margin-bottom: 10px;">★★★★★</div>
-                <p style="font-style: italic; margin-bottom: 15px;">"Great service! My order for BPC-157 arrived in 2 days. The packaging was professional and discreet."</p>
-                <strong style="color: var(--secondary-color);">- Shaun M.</strong>
-            </div>
-            <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-color);">
-                <div style="color: #f39c12; margin-bottom: 10px;">★★★★★</div>
-                <p style="font-style: italic; margin-bottom: 15px;">"Best pricing on Semaglutide I've found in SA. Will definitely order again."</p>
-                <strong style="color: var(--secondary-color);">- David K.</strong>
-            </div>
+    <div class="faq-section" id="faq">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
         </div>
-        <a href="#" target="_blank" class="btn" style="background-color: var(--secondary-color); display: inline-block; width: auto;">Leave a Review</a>
+        
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">How do I pay? <span class="faq-toggle">+</span></div>
+            <div class="faq-answer">We accept EFT (Bank Transfer). Once you checkout, you will receive our banking details. Orders are dispatched once funds clear.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">How long does delivery take? <span class="faq-toggle">+</span></div>
+            <div class="faq-answer">JHB/Pretoria orders are usually next-day. Coastal areas (Cape Town/Durban) take 2-3 working days via courier.</div>
+        </div>
+        
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">How should I store my products? <span class="faq-toggle">+</span></div>
+            <div class="faq-answer">Store powder vials in a cool, dark place or refrigerator. Once reconstituted (mixed), they <strong>must</strong> be kept in the fridge and used within 30 days.</div>
+        </div>
     </div>
 
-    <div id="contact" style="text-align: center; margin-top: 60px; padding: 40px; background: #fff; border-radius: 8px;">
-        <h2 style="color: var(--primary-color);">Contact Us</h2>
-        <p><strong>Email:</strong> <a href="mailto:katalystpeptides@gmail.com">katalystpeptides@gmail.com</a></p>
-        <p><strong>Phone/WhatsApp:</strong> 061 529 9285</p>
-        <p><em>Germiston, South Africa</em></p>
+    <div id="contact" style="text-align: center; margin: 80px 0 40px;">
+        <h3>Need Custom Orders?</h3>
+        <p>WhatsApp us for bulk pricing or specific protocols.</p>
+        <a href="https://wa.me/27615299285" class="btn-add" style="display:inline-block; margin-top:10px; text-decoration:none;">Chat on WhatsApp</a>
     </div>
 
 </div>
 
-<div id="cart-float" onclick="openCart()">🛒 View Cart (<span id="cart-count">0</span>)</div>
+<footer>
+    <p>&copy; 2026 Katalyst Peptides South Africa.</p>
+    <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 10px;">Disclaimer: Products are for research use only.</p>
+</footer>
+
+<div id="cart-float" onclick="openCart()">
+    🛒 <span id="cart-count">0</span>
+</div>
 
 <div class="modal" id="cart-modal">
     <div class="modal-content">
-        <span class="close-btn" onclick="closeCart()">&times;</span>
-        <h2>Your Cart</h2>
-        <div id="cart-items"></div>
-        <div class="cart-total" id="cart-total">Total: R0.00</div>
-
-        <div id="checkout-section" style="display:none;">
-            <h3>Checkout & Payment</h3>
-            <p>Please make an EFT to the account below.</p>
-            <div class="bank-details">
-                <p><strong>Bank:</strong> Capitec Bank</p>
-                <p><strong>Holder:</strong> Katalyst Peptides</p>
-                <p><strong>Acc No:</strong> 2484559956</p>
-                <p><strong>Branch:</strong> Universal (470010)</p>
-                <p><strong>Reference:</strong> [Your Name/Order ID]</p>
-                <p class="warning-text">Note: Orders processed once funds reflect.</p>
-            </div>
-            <p style="margin-top: 15px;"><strong>Next Step:</strong> Send Proof of Payment to 061 529 9285.</p>
-            <button class="btn" onclick="sendWhatsAppOrder()" style="background-color: #25D366; margin-top: 10px;">Confirm via WhatsApp</button>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+            <h2 style="margin:0;">Your Cart</h2>
+            <span style="font-size:1.5rem; cursor:pointer;" onclick="closeCart()">&times;</span>
         </div>
-        <button class="btn" id="proceed-btn" onclick="showCheckout()" style="width: 100%; margin-top: 20px;">Proceed to Checkout</button>
+        
+        <div id="cart-items"></div>
+        
+        <div style="border-top:2px solid #eee; margin-top:20px; padding-top:15px; text-align:right;">
+            <div style="font-size:1.3rem; font-weight:800; color:var(--primary);">Total: R<span id="cart-total">0.00</span></div>
+        </div>
+
+        <div id="checkout-section" style="display:none; background:#f9f9f9; padding:15px; border-radius:8px; margin-top:20px; text-align:left;">
+            <p style="font-weight:700; color:var(--primary);">Bank Details (Capitec)</p>
+            <p style="margin:5px 0; font-size:0.9rem;">Account: 2484559956<br>Branch: 470010<br>Ref: Your Name</p>
+            <button onclick="sendWhatsAppOrder()" style="width:100%; padding:15px; background:#25D366; color:white; border:none; border-radius:8px; font-weight:bold; margin-top:15px; cursor:pointer;">Confirm via WhatsApp ➜</button>
+        </div>
+
+        <button id="proceed-btn" onclick="showCheckout()" style="width:100%; padding:15px; background:var(--primary); color:white; border:none; border-radius:8px; font-weight:bold; margin-top:20px; cursor:pointer;">Proceed to Checkout</button>
     </div>
 </div>
 
-<footer><p>&copy; 2026 Katalyst Peptides. All rights reserved.</p></footer>
-
 <script>
-    /* --- PRODUCT DATA --- */
+    /* --- DATA & LOGIC --- */
     const products = [
-        { name: "BPC157", price: 450.00, img: "bpc157.jpg", badge: null, type: null },
-        { name: "IGF1-LR3", price: 400.00, img: "igf1.jpg", badge: null, type: null },
-        { name: "Semax", price: 450.00, img: "semax.jpg", badge: "Nootropic", type: "trust" },
-        { name: "Selank", price: 450.00, img: "selank.jpg", badge: "Anxiolytic", type: "trust" },
-        { name: "Semaglutide", price: 600.00, img: "semaglutide.jpg", badge: "Fat Loss", type: "trust" },
-        { name: "Tirzepatide", price: 750.00, img: "tirzepatide.jpg", badge: "Gold Std", type: "trust" },
-        { name: "Retatrutide (50mg)", price: 1850.00, img: "reta50.jpg", badge: "Best Seller", type: "gold" },
-        { name: "Retatrutide (30mg)", price: 1450.00, img: "reta30.jpg", badge: "Limited Stock", type: "scarcity" },
-        { name: "GHK-CU (100mg)", price: 450.00, img: "ghkcu.jpg", badge: "Anti-Aging", type: "trust" },
-        { name: "Mots-C (40mg)", price: 900.00, img: "motsc.jpg", badge: "Mitochondrial", type: "trust" },
-        { name: "Wolverine Stack", price: 750.00, img: "wolverine.jpg", badge: "Recovery", type: "trust" },
-        { name: "SLU PP-332", price: 500.00, img: "slupp332.jpg", badge: "New Arrival", type: "trust" },
-        { name: "Syringes", price: 32.90, img: "syringes.jpg", badge: "Essential", type: "trust" }
+        { name: "Retatrutide (50mg)", price: 1850.00, img: "reta50.jpg", badge: "Best Seller", type: "gold", desc: "Triple agonist (GLP-1/GIP/Glucagon)" },
+        { name: "Retatrutide (30mg)", price: 1450.00, img: "reta30.jpg", badge: "Limited Stock", type: "scarcity", desc: "Triple agonist research solution" },
+        { name: "BPC-157", price: 450.00, img: "bpc157.jpg", badge: null, type: null, desc: "Recovery & Tissue Repair" },
+        { name: "Tirzepatide", price: 750.00, img: "tirzepatide.jpg", badge: "Gold Standard", type: "trust", desc: "Dual agonist research" },
+        { name: "Semaglutide", price: 600.00, img: "semaglutide.jpg", badge: "Fat Loss", type: "trust", desc: "GLP-1 agonist" },
+        { name: "GHK-CU", price: 450.00, img: "ghkcu.jpg", badge: "Anti-Aging", type: "trust", desc: "Copper peptide for skin" },
+        { name: "Wolverine Stack", price: 750.00, img: "wolverine.jpg", badge: "Recovery", type: "trust", desc: "BPC-157 + TB-500 Blend" },
+        { name: "IGF1-LR3", price: 400.00, img: "igf1.jpg", badge: null, type: null, desc: "Growth factor research" },
+        { name: "Syringes", price: 32.90, img: "syringes.jpg", badge: "Essential", type: "trust", desc: "10x Insulin Syringes" }
     ];
 
     let cart = [];
 
-    // --- RENDER FUNCTION ---
-    const productList = document.getElementById('product-list');
-    products.forEach((product, index) => {
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        const imgSrc = product.img; 
-        
+    // Render Products
+    const list = document.getElementById('product-list');
+    products.forEach((p, i) => {
         let badgeHTML = '';
-        if (product.badge) {
-            let badgeClass = 'badge-trust';
-            if (product.type === 'scarcity') badgeClass = 'badge-scarcity';
-            if (product.type === 'gold') badgeClass = 'badge-gold';
-            badgeHTML = `<div class="badge ${badgeClass}">${product.badge}</div>`;
+        if(p.badge) {
+            let bClass = 'badge-trust';
+            if(p.type === 'gold') bClass = 'badge-gold';
+            if(p.type === 'scarcity') bClass = 'badge-scarcity';
+            badgeHTML = `<div class="badge ${bClass}">${p.badge}</div>`;
         }
-        
-        card.innerHTML = `
-            ${badgeHTML}
-            <img src="${imgSrc}" alt="${product.name}" class="product-image" onerror="this.src='https://placehold.co/300x250?text=No+Image'">
-            <div class="card-body">
-                <h3>${product.name}</h3>
-                <div class="price">R${product.price.toFixed(2)}</div>
-                <button class="btn" onclick="addToCart(${index})">Add to Cart</button>
+
+        list.innerHTML += `
+            <div class="product-card">
+                ${badgeHTML}
+                <img src="${p.img}" class="product-image" onerror="this.src='https://placehold.co/300x250?text=${p.name}'">
+                <div class="card-body">
+                    <h3>${p.name}</h3>
+                    <div class="product-desc">${p.desc}</div>
+                    <div class="price-row">
+                        <div class="price">R${p.price.toFixed(2)}</div>
+                        <button class="btn-add" onclick="addToCart(${i})">Add +</button>
+                    </div>
+                </div>
             </div>
         `;
-        productList.appendChild(card);
     });
 
-    // --- CART LOGIC ---
-    function addToCart(index) {
-        cart.push(products[index]);
-        updateCartUI();
-        alert(`${products[index].name} added to cart!`);
+    // FAQ Toggle
+    function toggleFaq(element) {
+        element.classList.toggle('active');
+        const toggle = element.querySelector('.faq-toggle');
+        toggle.innerText = element.classList.contains('active') ? '-' : '+';
     }
 
-    function updateCartUI() {
+    // Cart Logic
+    function addToCart(i) {
+        cart.push(products[i]);
+        updateCart();
+        // Optional: Small animation or toast could go here
+    }
+
+    function updateCart() {
         document.getElementById('cart-count').innerText = cart.length;
-        if(cart.length > 0) document.getElementById('cart-float').style.display = 'block';
+        document.getElementById('cart-float').style.display = cart.length > 0 ? 'block' : 'none';
     }
 
     function openCart() {
-        const cartItemsDiv = document.getElementById('cart-items');
-        cartItemsDiv.innerHTML = '';
+        const itemsDiv = document.getElementById('cart-items');
+        itemsDiv.innerHTML = '';
         let total = 0;
-        if (cart.length === 0) {
-            cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
+        
+        if(cart.length === 0) {
+            itemsDiv.innerHTML = '<p>Cart is empty.</p>';
             document.getElementById('proceed-btn').style.display = 'none';
         } else {
             cart.forEach((item, index) => {
                 total += item.price;
-                cartItemsDiv.innerHTML += `<div class="cart-item"><span>${item.name}</span><span>R${item.price.toFixed(2)} <a href="#" onclick="removeFromCart(${index})" style="color:red;margin-left:10px;">&times;</a></span></div>`;
+                itemsDiv.innerHTML += `
+                    <div style="display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid #eee;">
+                        <span>${item.name}</span>
+                        <span>R${item.price.toFixed(0)} <span onclick="removeFromCart(${index})" style="color:red; cursor:pointer; margin-left:10px;">&times;</span></span>
+                    </div>`;
             });
             document.getElementById('proceed-btn').style.display = 'block';
         }
-        document.getElementById('cart-total').innerText = 'Total: R' + total.toFixed(2);
+        
+        document.getElementById('cart-total').innerText = total.toFixed(2);
         document.getElementById('cart-modal').style.display = 'flex';
         document.getElementById('checkout-section').style.display = 'none';
     }
 
-    function removeFromCart(index) { cart.splice(index, 1); openCart(); updateCartUI(); }
+    function removeFromCart(i) { cart.splice(i,1); openCart(); updateCart(); }
     function closeCart() { document.getElementById('cart-modal').style.display = 'none'; }
-    function showCheckout() { document.getElementById('cart-items').style.display = 'none'; document.getElementById('proceed-btn').style.display = 'none'; document.getElementById('checkout-section').style.display = 'block'; }
-    
+    function showCheckout() { 
+        document.getElementById('proceed-btn').style.display = 'none'; 
+        document.getElementById('checkout-section').style.display = 'block'; 
+    }
+
     function sendWhatsAppOrder() {
-        let message = "Hi, I would like to place an order for:\n";
+        let msg = "Hi, new order from website:\n";
         let total = 0;
-        cart.forEach(item => { message += `- ${item.name} (R${item.price})\n`; total += item.price; });
-        message += `\nTotal: R${total.toFixed(2)}`;
-        message += "\n\nI will send the Proof of Payment shortly.";
-        window.open(`https://wa.me/27615299285?text=${encodeURIComponent(message)}`, '_blank');
+        cart.forEach(i => { msg += `- ${i.name} (R${i.price})\n`; total += i.price; });
+        msg += `\nTotal: R${total.toFixed(2)}\n\nI will send POP shortly.`;
+        window.open(`https://wa.me/27615299285?text=${encodeURIComponent(msg)}`, '_blank');
     }
 </script>
 
 </body>
-        </html>
-    
+                                                                       </html>
+                                                                       
