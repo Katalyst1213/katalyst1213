@@ -5,66 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research Insights | Katalyst Peptides South Africa</title>
     <meta name="description" content="Expert guide to research peptides in South Africa. Learn about BPC-157, Retatrutide, and GHK-CU. High purity solutions for laboratory use.">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
     <style>
-        /* --- REUSING YOUR BRAND THEME --- */
+        /* --- THEME CONFIGURATION --- */
         :root {
-            --primary-color: #0056b3; 
-            --secondary-color: #1a1a1a; 
-            --accent-color: #f8f9fa;
-            --text-color: #333;
+            --primary: #0a2540; /* Deep Navy */
+            --accent: #007bff; /* Clinical Blue */
+            --bg-light: #f8f9fc;
             --white: #ffffff;
+            --gold: #c5a059;
+            --text-dark: #1b263b;
         }
 
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--accent-color); color: var(--text-color); line-height: 1.6; }
-        
-        /* HEADER */
-        header { background-color: var(--white); padding: 15px 0; text-align: center; border-bottom: 4px solid var(--primary-color); }
-        header h1 { margin: 0; font-size: 2rem; color: var(--secondary-color); letter-spacing: 1px; }
-        
-        /* NAV */
-        nav { background-color: var(--secondary-color); padding: 15px 0; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        nav a { color: var(--white); text-decoration: none; padding: 0 20px; font-weight: bold; font-size: 1.1rem; text-transform: uppercase; }
-        nav a:hover { color: var(--primary-color); }
+        body { font-family: 'Open Sans', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.8; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: var(--primary); }
 
-        /* ARTICLE CONTAINER */
-        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        /* --- NAVIGATION --- */
+        nav { background-color: var(--white); padding: 15px 0; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        nav a { color: var(--primary); text-decoration: none; padding: 0 20px; font-weight: 600; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
+        nav a:hover { color: var(--accent); }
+
+        /* --- ARTICLE HEADER --- */
+        .article-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #004e92 100%);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .article-hero h1 { color: var(--white); font-size: 2.5rem; margin-bottom: 10px; }
+        .meta-data { font-size: 0.9rem; opacity: 0.8; font-style: italic; }
+
+        /* --- CONTENT CONTAINER --- */
+        .container { max-width: 800px; margin: -40px auto 60px; padding: 0 20px; position: relative; z-index: 10; }
         
-        article { background: var(--white); padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        article { 
+            background: var(--white); 
+            padding: 50px; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08); 
+        }
         
-        h1.article-title { color: var(--primary-color); font-size: 2.2rem; margin-bottom: 10px; line-height: 1.2; }
-        .meta-data { color: #888; font-size: 0.9rem; margin-bottom: 30px; font-style: italic; }
-        
-        h2 { color: var(--secondary-color); margin-top: 30px; border-left: 5px solid var(--primary-color); padding-left: 15px; }
+        h2 { margin-top: 40px; border-left: 5px solid var(--gold); padding-left: 20px; font-size: 1.8rem; }
         p { margin-bottom: 20px; font-size: 1.1rem; color: #444; }
-        
-        ul { margin-bottom: 20px; }
-        li { margin-bottom: 10px; }
+        ul { margin-bottom: 30px; }
+        li { margin-bottom: 10px; padding-left: 10px; }
 
-        .cta-box { background: #eef5ff; border: 2px solid var(--primary-color); padding: 30px; border-radius: 8px; text-align: center; margin-top: 40px; }
-        .btn { background-color: var(--primary-color); color: var(--white); text-decoration: none; padding: 15px 30px; border-radius: 50px; font-weight: bold; font-size: 1.1rem; display: inline-block; transition: background 0.3s; }
-        .btn:hover { background-color: #004494; }
+        /* --- CTA BOX --- */
+        .cta-box { 
+            background: #f0f7ff; 
+            border: 2px solid var(--accent); 
+            padding: 30px; 
+            border-radius: 12px; 
+            text-align: center; 
+            margin-top: 50px; 
+        }
+        .btn-cta { 
+            background-color: var(--accent); 
+            color: var(--white); 
+            text-decoration: none; 
+            padding: 15px 35px; 
+            border-radius: 50px; 
+            font-weight: 800; 
+            font-size: 1rem; 
+            display: inline-block; 
+            transition: transform 0.2s;
+            margin-top: 15px;
+        }
+        .btn-cta:hover { background-color: #0056b3; transform: scale(1.05); }
 
-        footer { background: var(--secondary-color); color: var(--white); text-align: center; padding: 30px 20px; margin-top: 60px; }
+        /* --- FOOTER --- */
+        footer { background: var(--primary); color: #8fa6b8; text-align: center; padding: 50px 20px; margin-top: 80px; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>KATALYST PEPTIDES</h1>
-    <p>Research & Education Hub</p>
-</header>
-
 <nav>
-    <a href="index.html">Home</a>
-    <a href="index.html#products">Catalogue</a>
-    <a href="articles.html" style="color: var(--primary-color);">Articles</a>
+    <a href="index.html">Catalogue</a>
+    <a href="articles.html" style="color: var(--accent);">Research Hub</a>
+    <a href="index.html#faq">FAQ</a>
     <a href="index.html#contact">Contact</a>
 </nav>
 
+<div class="article-hero">
+    <h1>Research Insights</h1>
+    <p class="meta-data">Protocol Updates & Scientific Literature</p>
+</div>
+
 <div class="container">
     <article>
-        <h1 class="article-title">The Ultimate Guide to Research Peptides in South Africa (2026 Edition)</h1>
-        <p class="meta-data">Published: February 2026 | Category: Research Protocols</p>
+        <h1 style="font-size: 2rem; line-height: 1.3;">The Ultimate Guide to Research Peptides in South Africa (2026 Edition)</h1>
+        <p class="meta-data" style="color:#666; margin-bottom:30px;">Published: February 2026 | Author: Katalyst Research Team</p>
 
         <p>The landscape of biological research in South Africa is evolving rapidly. From injury recovery models to metabolic efficiency studies, peptides have become the cornerstone of modern biotechnology.</p>
         
@@ -103,16 +134,16 @@
         </ul>
 
         <div class="cta-box">
-            <h3>Ready to Start Your Research?</h3>
-            <p>We stock all three of these compounds in our secure facility.</p>
-            <br>
-            <a href="index.html#products" class="btn">View Current Pricing & Stock</a>
+            <h3 style="margin-top:0;">Ready to Start Your Research?</h3>
+            <p>We stock all three of these compounds in our secure facility in Boksburg.</p>
+            <a href="index.html#products" class="btn-cta">View Current Stock</a>
         </div>
     </article>
 </div>
 
 <footer>
-    <p>&copy; 2026 Katalyst Peptides. For Research Use Only. Not for human consumption.</p>
+    <p>&copy; 2026 Katalyst Peptides South Africa.</p>
+    <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 10px;">Disclaimer: Products are for research use only.</p>
 </footer>
 
 </body>
