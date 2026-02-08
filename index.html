@@ -8,10 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
-        /* --- THEME CONFIGURATION --- */
         :root {
-            --primary: #0a2540; /* Deep Navy (Trust) */
-            --accent: #007bff; /* Clinical Blue (Action) */
+            --primary: #0a2540; /* Deep Navy */
+            --accent: #007bff; /* Clinical Blue */
             --bg-light: #f8f9fc;
             --white: #ffffff;
             --gold: #c5a059;
@@ -22,7 +21,7 @@
         body { font-family: 'Open Sans', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
 
-        /* --- HERO SECTION --- */
+        /* HERO */
         .hero {
             background: linear-gradient(135deg, var(--primary) 0%, #004e92 100%);
             color: var(--white);
@@ -44,12 +43,12 @@
         }
         .hero-btn:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
 
-        /* --- NAVIGATION --- */
+        /* NAV */
         nav { background-color: var(--white); padding: 15px 0; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         nav a { color: var(--primary); text-decoration: none; padding: 0 20px; font-weight: 600; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
         nav a:hover { color: var(--accent); }
 
-        /* --- TRUST ICONS --- */
+        /* TRUST ICONS */
         .features { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 40px 20px; background: var(--white); border-bottom: 1px solid #eee; }
         .feature-box { text-align: center; max-width: 250px; }
         .feature-icon { font-size: 2rem; color: var(--accent); margin-bottom: 10px; }
@@ -57,7 +56,7 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
-        /* --- PRODUCTS GRID --- */
+        /* PRODUCTS */
         .section-header { text-align: center; margin: 60px 0 40px; }
         .section-header h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 10px; }
         .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
@@ -101,7 +100,7 @@
         }
         .btn-add:hover { background-color: #0056b3; }
 
-        /* --- FAQ SECTION --- */
+        /* FAQ */
         .faq-section { max-width: 800px; margin: 80px auto; padding: 20px; }
         .faq-item { background: var(--white); margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); overflow: hidden; }
         .faq-question { padding: 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center; background: #fff; }
@@ -109,15 +108,13 @@
         .faq-item.active .faq-answer { display: block; }
         .faq-toggle { font-size: 1.2rem; color: var(--accent); }
 
-        /* --- FOOTER --- */
         footer { background: var(--primary); color: #8fa6b8; text-align: center; padding: 50px 20px; margin-top: 80px; font-size: 0.9rem; }
         footer a { color: var(--white); text-decoration: none; border-bottom: 1px dotted #8fa6b8; }
 
-        /* --- CART FLOATING BUTTON --- */
+        /* CART */
         #cart-float { position: fixed; bottom: 30px; right: 30px; background: var(--accent); color: white; padding: 15px 25px; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 20px rgba(0,123,255,0.4); font-weight: 700; z-index: 200; display: none; transition: transform 0.2s; }
         #cart-float:hover { transform: scale(1.1); }
         
-        /* MODAL */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
         .modal-content { background: white; padding: 40px; border-radius: 12px; width: 90%; max-width: 480px; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
     </style>
@@ -126,6 +123,7 @@
 
 <nav>
     <a href="index.html">Catalogue</a>
+    <a href="calculator.html">Calculator</a>
     <a href="articles.html">Research Hub</a>
     <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
@@ -178,7 +176,6 @@
             <div class="faq-question">How long does delivery take? <span class="faq-toggle">+</span></div>
             <div class="faq-answer">JHB/Pretoria orders are usually next-day. Coastal areas (Cape Town/Durban) take 2-3 working days via courier.</div>
         </div>
-        
         <div class="faq-item" onclick="toggleFaq(this)">
             <div class="faq-question">How should I store my products? <span class="faq-toggle">+</span></div>
             <div class="faq-answer">Store powder vials in a cool, dark place or refrigerator. Once reconstituted (mixed), they <strong>must</strong> be kept in the fridge and used within 30 days.</div>
@@ -198,9 +195,7 @@
     <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 10px;">Disclaimer: Products are for research use only.</p>
 </footer>
 
-<div id="cart-float" onclick="openCart()">
-    🛒 <span id="cart-count">0</span>
-</div>
+<div id="cart-float" onclick="openCart()">🛒 <span id="cart-count">0</span></div>
 
 <div class="modal" id="cart-modal">
     <div class="modal-content">
@@ -226,7 +221,6 @@
 </div>
 
 <script>
-    /* --- DATA & LOGIC --- */
     const products = [
         { name: "Retatrutide (50mg)", price: 1850.00, img: "reta50.jpg", badge: "Best Seller", type: "gold", desc: "Triple agonist (GLP-1/GIP/Glucagon)" },
         { name: "Retatrutide (30mg)", price: 1450.00, img: "reta30.jpg", badge: "Limited Stock", type: "scarcity", desc: "Triple agonist research solution" },
@@ -241,7 +235,6 @@
 
     let cart = [];
 
-    // Render Products
     const list = document.getElementById('product-list');
     products.forEach((p, i) => {
         let badgeHTML = '';
@@ -268,20 +261,13 @@
         `;
     });
 
-    // FAQ Toggle
     function toggleFaq(element) {
         element.classList.toggle('active');
         const toggle = element.querySelector('.faq-toggle');
         toggle.innerText = element.classList.contains('active') ? '-' : '+';
     }
 
-    // Cart Logic
-    function addToCart(i) {
-        cart.push(products[i]);
-        updateCart();
-        // Optional: Small animation or toast could go here
-    }
-
+    function addToCart(i) { cart.push(products[i]); updateCart(); }
     function updateCart() {
         document.getElementById('cart-count').innerText = cart.length;
         document.getElementById('cart-float').style.display = cart.length > 0 ? 'block' : 'none';
@@ -306,7 +292,6 @@
             });
             document.getElementById('proceed-btn').style.display = 'block';
         }
-        
         document.getElementById('cart-total').innerText = total.toFixed(2);
         document.getElementById('cart-modal').style.display = 'flex';
         document.getElementById('checkout-section').style.display = 'none';
@@ -329,5 +314,4 @@
 </script>
 
 </body>
-                                                                       </html>
-                                                                       
+</html>
