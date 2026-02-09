@@ -3,44 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peptide Calculator | Katalyst Peptides SA</title>
+    <title>Peptide Calculator | Katalyst Peptides</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root { --primary: #0a2540; --accent: #007bff; --bg-light: #f8f9fc; --white: #ffffff; --gold: #c5a059; }
-        body { font-family: 'Open Sans', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); }
+        body { font-family: 'Open Sans', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); padding-bottom: 70px; }
         nav { background-color: var(--white); padding: 15px 0; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        nav a { color: var(--primary); text-decoration: none; padding: 0 15px; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; }
+        nav a { color: var(--primary); text-decoration: none; padding: 0 15px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
         .hero { background: linear-gradient(135deg, var(--primary) 0%, #004e92 100%); color: var(--white); padding: 40px 20px; text-align: center; }
         .calculator-box { background: var(--white); max-width: 500px; margin: -30px auto 50px; padding: 40px; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
-        label { display: block; font-weight: 700; margin-bottom: 8px; color: var(--primary); }
-        input { width: 100%; padding: 12px; border: 2px solid #eee; border-radius: 8px; margin-bottom: 20px; font-size: 1rem; box-sizing: border-box; }
-        .btn-calc { background: var(--gold); color: var(--primary); width: 100%; padding: 15px; border: none; border-radius: 50px; font-weight: 800; cursor: pointer; text-transform: uppercase; }
+        input { width: 100%; padding: 12px; border: 2px solid #eee; border-radius: 8px; margin-bottom: 20px; box-sizing: border-box; }
+        .btn-calc { background: var(--gold); color: var(--primary); width: 100%; padding: 15px; border: none; border-radius: 50px; font-weight: 800; cursor: pointer; }
         #result { margin-top: 30px; padding: 20px; background: #e3f2fd; border-left: 5px solid var(--accent); display: none; }
+        .mobile-tabs { position: fixed; bottom: 0; left: 0; width: 100%; background: var(--white); display: flex; justify-content: space-around; padding: 10px 0; border-top: 1px solid #eee; z-index: 1000; }
+        .tab-item { text-align: center; text-decoration: none; color: #888; font-size: 0.75rem; font-weight: bold; }
+        .tab-item i { display: block; font-size: 1.4rem; margin-bottom: 2px; }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-<nav>
-    <a href="index.html">Catalogue</a>
-    <a href="calculator.html" style="color:var(--accent);">Calculator</a>
-    <a href="articles.html">Research Hub</a>
-</nav>
-<div class="hero">
-    <h1>Reconstitution Calculator</h1>
-    <p>Universal Dosing Tool for Researchers</p>
-</div>
+<nav><a href="index.html">Catalogue</a><a href="calculator.html" style="color:var(--accent);">Calculator</a><a href="articles.html">Research Hub</a></nav>
+<div class="hero"><h1>Reconstitution Tool</h1></div>
 <div class="calculator-box">
-    <label>Vial Quantity (mg)</label>
-    <input type="number" id="vialMg" placeholder="e.g. 5">
-    <label>Water Added (ml)</label>
-    <input type="number" id="waterMl" placeholder="e.g. 2">
-    <label>Desired Dose (mcg)</label>
-    <input type="number" id="doseMcg" placeholder="e.g. 250">
-    <button class="btn-calc" onclick="calculate()">Calculate Now</button>
+    <label>Vial Quantity (mg)</label><input type="number" id="vialMg" placeholder="e.g. 5">
+    <label>Water Added (ml)</label><input type="number" id="waterMl" placeholder="e.g. 2">
+    <label>Desired Dose (mcg)</label><input type="number" id="doseMcg" placeholder="e.g. 250">
+    <button class="btn-calc" onclick="calculate()">Calculate Units</button>
     <div id="result">
-        <div style="font-weight:800; color:var(--primary);">Syringe Pull:</div>
+        <div style="font-weight:800; color:var(--primary);">Syringe Units (U-100):</div>
         <div id="iuOutput" style="font-size:2rem; font-weight:800; color:var(--accent); margin:10px 0;">0 Units</div>
-        <div style="font-size:0.85rem; color:#555;"><strong>Requires a U-100 Insulin Syringe.</strong><br>Pull liquid to the marked line above.</div>
     </div>
+</div>
+<div class="mobile-tabs">
+    <a href="index.html" class="tab-item"><i class="fas fa-flask"></i>Shop</a>
+    <a href="calculator.html" class="tab-item active" style="color:var(--accent);"><i class="fas fa-calculator"></i>Calc</a>
+    <a href="https://wa.me/27615299285" class="tab-item"><i class="fab fa-whatsapp"></i>Chat</a>
 </div>
 <script>
     function calculate() {
