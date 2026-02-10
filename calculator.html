@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peptide Calculator | Katalyst Peptides</title>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-43W7D6SGG7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-43W7D6SGG7');
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -35,12 +45,14 @@
         <div style="font-size:0.8rem; color: #555;">Pull liquid to the units mark shown above using a standard U-100 insulin syringe.</div>
     </div>
 </div>
+
 <div class="mobile-tabs">
     <a href="index.html" class="tab-item"><i class="fas fa-flask"></i>Shop</a>
     <a href="calculator.html" class="tab-item active" style="color:var(--accent);"><i class="fas fa-calculator"></i>Calc</a>
     <a href="index.html" class="tab-item"><i class="fas fa-shopping-cart"></i>Cart</a>
     <a href="https://wa.me/27615299285" class="tab-item"><i class="fab fa-whatsapp"></i>Chat</a>
 </div>
+
 <script>
     function calculate() {
         let mg = parseFloat(document.getElementById('vialMg').value);
