@@ -1,57 +1,127 @@
-<section class="articles-list">
-    
-    <article>
-        <span class="category-tag">Protocols</span>
-        <h2>Peptide Reconstitution: A Beginner's Guide</h2>
-        <p>Correct reconstitution is critical for maintaining the integrity of lyophilized peptides. This guide covers the importance of using Bacteriostatic Water...</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Hub | Katalyst Peptides South Africa</title>
+    <style>
+        /* --- FULL PROFESSIONAL STYLING --- */
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background-color: #f9f9f9; color: #333; line-height: 1.7; }
+        header { background: #111; color: white; padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .logo-text { font-weight: bold; font-size: 1.4rem; letter-spacing: 2px; color: #fff; text-decoration: none; }
+        .nav-links a { color: #ccc; text-decoration: none; margin-left: 20px; font-size: 0.9rem; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: #fff; }
         
-        <div id="full-article-1" style="display:none; margin-top: 15px; border-top: 1px solid #eee; pt-15px;">
-            <p><strong>The Process:</strong> Gently inject the Bacteriostatic Water (BAC) against the side of the glass vial. Do not spray directly onto the lyophilized powder. <strong>The "Gentle Swirl":</strong> Avoid shaking the vial, as this can shear the delicate peptide chains. Instead, gently swirl until the solution is clear.</p>
-            <p><strong>Storage:</strong> Once reconstituted, most peptides should be stored in a refrigerator between 2°C and 8°C. Protect the vial from direct sunlight to prevent degradation.</p>
-        </div>
-        
-        <a href="javascript:void(0)" onclick="toggleArticle(1)" id="btn-1" class="read-more">Read Full Guide →</a>
-    </article>
+        .hero-section { background: #1a1a1a; color: white; text-align: center; padding: 40px 20px; border-bottom: 3px solid #007bff; }
+        .hero-section h1 { font-size: 2rem; margin: 0; }
+        .hero-section p { color: #00d4ff; font-weight: bold; margin-top: 10px; }
 
-    <article>
-        <span class="category-tag">Wound Healing</span>
-        <h2>The Science of BPC-157 and Tissue Repair</h2>
-        <p>Body Protection Compound 157 (BPC-157) has shown remarkable potential in research involving the healing of tendons, muscles, and ligaments...</p>
+        .content-layout { max-width: 1100px; margin: 30px auto; padding: 0 20px; display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
         
-        <div id="full-article-2" style="display:none; margin-top: 15px; border-top: 1px solid #eee; pt-15px;">
-            <p><strong>Angiogenesis:</strong> BPC-157 works by triggering the formation of new blood vessels, a process known as angiogenesis. This increases the delivery of nutrients to damaged tissues that typically have poor blood flow, such as tendons.</p>
-            <p><strong>Research Findings:</strong> Studies in laboratory models have shown accelerated healing in Achilles tendon ruptures and muscle tears compared to control groups. It remains one of the most researched peptides for recovery protocols.</p>
-        </div>
+        article { background: white; padding: 25px; border-radius: 8px; margin-bottom: 25px; border: 1px solid #eee; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .category-tag { background: #007bff; color: white; padding: 3px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; }
+        article h2 { margin: 15px 0 10px 0; color: #111; font-size: 1.5rem; }
         
-        <a href="javascript:void(0)" onclick="toggleArticle(2)" id="btn-2" class="read-more">Read Full Study →</a>
-    </article>
+        /* The Expandable Content */
+        .full-content { display: none; margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; background: #fcfcfc; padding: 15px; border-radius: 4px; }
+        .read-more-btn { display: inline-block; margin-top: 15px; color: #007bff; font-weight: bold; text-decoration: none; cursor: pointer; border: 1px solid #007bff; padding: 8px 15px; border-radius: 4px; transition: 0.3s; }
+        .read-more-btn:hover { background: #007bff; color: white; }
 
-    <article>
-        <span class="category-tag">Metabolic Research</span>
-        <h2>Comparing GLP-1 and GIP Agonists</h2>
-        <p>Understanding the difference between Semaglutide, Tirzepatide, and the new Retatrutide for research purposes...</p>
+        .sidebar { background: #111; color: white; padding: 25px; border-radius: 8px; height: fit-content; position: sticky; top: 100px; text-align: center; }
+        .cta-btn { display: block; background: #25d366; color: white; padding: 12px; border-radius: 4px; text-decoration: none; font-weight: bold; margin-top: 20px; }
         
-        <div id="full-article-3" style="display:none; margin-top: 15px; border-top: 1px solid #eee; pt-15px;">
-            <p><strong>The Evolution:</strong> Semaglutide is a single GLP-1 agonist. Tirzepatide added a second pathway (GIP), while Retatrutide is a "Triple Agonist" (GLP-1, GIP, and Glucagon). </p>
-            <p><strong>Why it matters:</strong> In research models, the triple-action pathway of Retatrutide has shown significantly higher metabolic signaling efficiency. This makes it the current "gold standard" for metabolic research enthusiasts.</p>
-        </div>
-        
-        <a href="javascript:void(0)" onclick="toggleArticle(3)" id="btn-3" class="read-more">View Comparison →</a>
-    </article>
+        footer { background: #111; color: #888; text-align: center; padding: 30px 0; font-size: 0.8rem; }
 
+        @media (max-width: 800px) { .content-layout { grid-template-columns: 1fr; } .sidebar { position: static; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html" class="logo-text">KATALYST PEPTIDES</a>
+        <div class="nav-links">
+            <a href="index.html">Catalog</a>
+            <a href="articles.html" style="color:#fff;">Research Hub</a>
+            <a href="calculator.html">Dosing Tool</a>
+        </div>
+    </nav>
+</header>
+
+<section class="hero-section">
+    <h1>Research & Protocols</h1>
+    <p>Data-driven insights for laboratory analysis.</p>
 </section>
 
+<main class="content-layout">
+    <section>
+        <article>
+            <span class="category-tag">Protocols</span>
+            <h2>Peptide Reconstitution: A Beginner's Guide</h2>
+            <p>Correct reconstitution is critical for maintaining the integrity of lyophilized peptides. This guide covers the essential "Gentle Swirl" technique...</p>
+            
+            <div id="art1" class="full-content">
+                <p><strong>Step 1:</strong> Clean the stopper with an alcohol swab. <strong>Step 2:</strong> Slowly inject Bacteriostatic Water against the side of the glass. <strong>Step 3:</strong> Do not shake. Gently rotate until the solution is clear.</p>
+                <p>Proper storage is 2°C - 8°C. Protect from UV light to prevent chain degradation.</p>
+                <a href="index.html" style="color: #007bff; font-weight:bold;">Shop High-Purity Peptides →</a>
+            </div>
+            <div class="read-more-btn" onclick="toggle(1)" id="btn1">Read Full Guide →</div>
+        </article>
+
+        <article>
+            <span class="category-tag">Wound Healing</span>
+            <h2>The Science of BPC-157 and Tissue Repair</h2>
+            <p>BPC-157 has shown remarkable potential in healing tendons and ligaments by triggering "Angiogenesis" in research models...</p>
+            
+            <div id="art2" class="full-content">
+                <p>Angiogenesis is the formation of new blood vessels. By increasing blood flow to damaged tissues (like the Achilles tendon), BPC-157 facilitates the delivery of repair nutrients where they are needed most.</p>
+                <p>Research suggests it works systemically to support gastric health and soft tissue recovery.</p>
+                <a href="index.html" style="color: #007bff; font-weight:bold;">View BPC-157 Stock →</a>
+            </div>
+            <div class="read-more-btn" onclick="toggle(2)" id="btn2">Read Full Study →</div>
+        </article>
+
+        <article>
+            <span class="category-tag">Metabolic Research</span>
+            <h2>Comparing GLP-1, GIP, and GCG Agonists</h2>
+            <p>Understanding the metabolic pathways of Semaglutide, Tirzepatide, and the new "Triple Agonist" Retatrutide...</p>
+            
+            <div id="art3" class="full-content">
+                <p>While Semaglutide targets one receptor, Tirzepatide targets two. Retatrutide is the latest evolution, targeting three distinct pathways for maximum signaling efficiency in research studies.</p>
+                <p>This makes Retatrutide the current "Gold Standard" for advanced metabolic research in South Africa.</p>
+                <a href="index.html" style="color: #007bff; font-weight:bold;">Explore Metabolic Peptides →</a>
+            </div>
+            <div class="read-more-btn" onclick="toggle(3)" id="btn3">View Comparison →</div>
+        </article>
+    </section>
+
+    <aside class="sidebar">
+        <h3>Urgent Order?</h3>
+        <p style="font-size: 0.9rem;">We offer discreet nationwide delivery within 5-7 days.</p>
+        <p style="color: #00d4ff; font-weight: bold;">FREE Shipping over R3000</p>
+        <a href="index.html" class="cta-btn">Back to Catalog</a>
+        <p style="margin-top: 15px; font-size: 0.8rem;">WhatsApp: 060 421 6988</p>
+    </aside>
+</main>
+
+<footer>
+    <p>&copy; 2026 Katalyst Peptides | For Laboratory Research Use Only</p>
+</footer>
+
 <script>
-    function toggleArticle(id) {
-        const fullText = document.getElementById(`full-article-${id}`);
-        const btn = document.getElementById(`btn-${id}`);
-        
-        if (fullText.style.display === "none") {
-            fullText.style.display = "block";
-            btn.innerText = "Show Less ↑";
-        } else {
-            fullText.style.display = "none";
+    function toggle(id) {
+        const content = document.getElementById('art' + id);
+        const btn = document.getElementById('btn' + id);
+        if (content.style.display === "block") {
+            content.style.display = "none";
             btn.innerText = "Read More →";
+        } else {
+            content.style.display = "block";
+            btn.innerText = "Show Less ↑";
         }
     }
 </script>
+
+</body>
+</html>
