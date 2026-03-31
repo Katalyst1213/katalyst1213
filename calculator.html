@@ -4,72 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dosing Tool | Katalyst Peptides</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background-color: #f9f9f9; color: #333; }
+        header { background: #111; color: white; padding: 15px 0; }
+        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .logo-text { font-weight: bold; font-size: 1.4rem; letter-spacing: 2px; color: #fff; }
+        .nav-links a { color: #ccc; text-decoration: none; margin-left: 20px; font-size: 0.9rem; text-transform: uppercase; }
+
+        .calc-wrapper { max-width: 500px; margin: 60px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid #eee; }
+        h1 { text-align: center; color: #111; font-size: 1.5rem; margin-bottom: 25px; }
+        
+        .input-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 0.9rem; color: #555; }
+        input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 1rem; }
+        
+        .calc-btn { width: 100%; background: #007bff; color: white; border: none; padding: 15px; border-radius: 6px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: 0.3s; margin-top: 10px; }
+        .calc-btn:hover { background: #0056b3; }
+
+        .result-display { margin-top: 30px; padding: 20px; background: #eef7ff; border-radius: 6px; text-align: center; display: none; border: 1px solid #b3d7ff; }
+        .result-display h3 { margin: 0; color: #0056b3; font-size: 1.4rem; }
+        .result-display p { margin: 5px 0 0; font-size: 0.85rem; color: #666; }
+
+        footer { text-align: center; margin-top: 40px; font-size: 0.9rem; color: #888; }
+        footer a { color: #007bff; text-decoration: none; }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="logo-container">
-                <span class="logo-text">KATALYST PEPTIDES</span>
-            </div>
+        <nav>
+            <div class="logo-container"><span class="logo-text">KATALYST PEPTIDES</span></div>
             <div class="nav-links">
                 <a href="index.html">Catalog</a>
                 <a href="articles.html">Research Hub</a>
-                <a href="calculator.html" class="active">Dosing Tool</a>
+                <a href="calculator.html">Dosing Tool</a>
             </div>
         </nav>
     </header>
 
-    <main class="calc-container">
-        <div class="calc-box">
-            <h1>Peptide Reconstitution Calculator</h1>
-            <p class="calc-sub">Calculate accurate units for research administration.</p>
-            
-            <div class="input-field">
-                <label>Vial Size (mg)</label>
-                <input type="number" id="vialMg" placeholder="e.g. 5" value="5">
-            </div>
+    <main class="calc-wrapper">
+        <h1>Reconstitution Calculator</h1>
+        
+        <div class="input-group">
+            <label>Vial Quantity (mg)</label>
+            <input type="number" id="mg" placeholder="e.g., 5" value="5">
+        </div>
 
-            <div class="input-field">
-                <label>Bacteriostatic Water (ml)</label>
-                <input type="number" id="waterMl" placeholder="e.g. 2" value="2">
-            </div>
+        <div class="input-group">
+            <label>Bacteriostatic Water Added (ml)</label>
+            <input type="number" id="ml" placeholder="e.g., 2" value="2">
+        </div>
 
-            <div class="input-field">
-                <label>Desired Dose (mcg)</label>
-                <input type="number" id="doseMcg" placeholder="e.g. 250" value="250">
-            </div>
+        <div class="input-group">
+            <label>Desired Research Dose (mcg)</label>
+            <input type="number" id="mcg" placeholder="e.g., 250" value="250">
+        </div>
 
-            <button onclick="calculateDose()" class="calc-btn">Calculate Units</button>
+        <button onclick="doMath()" class="calc-btn">Calculate Units</button>
 
-            <div id="calc-output" class="result-display">
-                </div>
+        <div id="resultBox" class="result-display">
+            <h3 id="unitOutput">0 Units</h3>
+            <p>on a 100-unit insulin syringe</p>
         </div>
     </main>
 
-    <footer class="footer">
-        <p>Technical Support: <a href="https://wa.me/27604216988">060 421 6988</a></p>
+    <footer>
+        Need help? <a href="https://wa.me/27604216988">Contact Support (060 421 6988)</a>
     </footer>
 
     <script>
-        function calculateDose() {
-            const mg = parseFloat(document.getElementById('vialMg').value);
-            const ml = parseFloat(document.getElementById('waterMl').value);
-            const mcg = parseFloat(document.getElementById('doseMcg').value);
+        function doMath() {
+            const mg = parseFloat(document.getElementById('mg').value);
+            const ml = parseFloat(document.getElementById('ml').value);
+            const mcg = parseFloat(document.getElementById('mcg').value);
 
-            if (mg && ml && mcg) {
-                // Formula: (Dose / Total mcg in vial) * (ml * 100 units)
+            if(mg > 0 && ml > 0 && mcg > 0) {
                 const totalMcg = mg * 1000;
                 const units = (mcg / totalMcg) * (ml * 100);
                 
-                document.getElementById('calc-output').innerHTML = `
-                    <div class="success-box">
-                        <h3>Draw: ${units.toFixed(1)} Units</h3>
-                        <p>Based on a standard 100-unit (1ml) insulin syringe.</p>
-                    </div>
-                `;
+                const box = document.getElementById('resultBox');
+                const output = document.getElementById('unitOutput');
+                
+                output.innerText = units.toFixed(1) + " Units";
+                box.style.display = 'block';
             } else {
-                alert("Please fill in all fields correctly.");
+                alert("Please enter valid numbers in all fields.");
             }
         }
     </script>
