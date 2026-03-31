@@ -3,51 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dosing Calculator | Katalyst Peptides</title>
+    <title>Dosing Tool | Katalyst Peptides</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">KATALYST PEPTIDES</div>
+        <nav class="navbar">
+            <div class="logo-container">
+                <span class="logo-text">KATALYST PEPTIDES</span>
+            </div>
             <div class="nav-links">
                 <a href="index.html">Catalog</a>
                 <a href="articles.html">Research Hub</a>
-                <a href="calculator.html">Dosing Tool</a>
+                <a href="calculator.html" class="active">Dosing Tool</a>
             </div>
         </nav>
     </header>
 
     <main class="calc-container">
-        <h1>Peptide Dosage Calculator</h1>
-        <div class="input-group">
-            <label>Vial Size (mg):</label>
-            <input type="number" id="vialSize" placeholder="e.g. 5">
-        </div>
-        <div class="input-group">
-            <label>Bacteriostatic Water Added (ml):</label>
-            <input type="number" id="water" placeholder="e.g. 2">
-        </div>
-        <div class="input-group">
-            <label>Desired Dose (mcg):</label>
-            <input type="number" id="dose" placeholder="e.g. 250">
-        </div>
-        <button onclick="calculate()" class="btn-calc">Calculate Units</button>
-
-        <div id="result" class="result-box">
+        <div class="calc-box">
+            <h1>Peptide Reconstitution Calculator</h1>
+            <p class="calc-sub">Calculate accurate units for research administration.</p>
+            
+            <div class="input-field">
+                <label>Vial Size (mg)</label>
+                <input type="number" id="vialMg" placeholder="e.g. 5" value="5">
             </div>
+
+            <div class="input-field">
+                <label>Bacteriostatic Water (ml)</label>
+                <input type="number" id="waterMl" placeholder="e.g. 2" value="2">
+            </div>
+
+            <div class="input-field">
+                <label>Desired Dose (mcg)</label>
+                <input type="number" id="doseMcg" placeholder="e.g. 250" value="250">
+            </div>
+
+            <button onclick="calculateDose()" class="calc-btn">Calculate Units</button>
+
+            <div id="calc-output" class="result-display">
+                </div>
+        </div>
     </main>
 
-    <script>
-        function calculate() {
-            const mg = document.getElementById('vialSize').value;
-            const ml = document.getElementById('water').value;
-            const mcg = document.getElementById('dose').value;
+    <footer class="footer">
+        <p>Technical Support: <a href="https://wa.me/27604216988">060 421 6988</a></p>
+    </footer>
 
-            if(mg && ml && mcg) {
+    <script>
+        function calculateDose() {
+            const mg = parseFloat(document.getElementById('vialMg').value);
+            const ml = parseFloat(document.getElementById('waterMl').value);
+            const mcg = parseFloat(document.getElementById('doseMcg').value);
+
+            if (mg && ml && mcg) {
+                // Formula: (Dose / Total mcg in vial) * (ml * 100 units)
                 const totalMcg = mg * 1000;
                 const units = (mcg / totalMcg) * (ml * 100);
-                document.getElementById('result').innerHTML = `<h3>Draw to: ${units.toFixed(1)} Units</h3><p>on a 100-unit insulin syringe</p>`;
+                
+                document.getElementById('calc-output').innerHTML = `
+                    <div class="success-box">
+                        <h3>Draw: ${units.toFixed(1)} Units</h3>
+                        <p>Based on a standard 100-unit (1ml) insulin syringe.</p>
+                    </div>
+                `;
+            } else {
+                alert("Please fill in all fields correctly.");
             }
         }
     </script>
