@@ -3,53 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Hub | Katalyst Peptides</title>
+    <title>Research Hub | Peptide Science & Protocols | Katalyst Peptides</title>
     <style>
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background-color: #f9f9f9; color: #333; line-height: 1.6; }
-        header { background: #111; color: white; padding: 15px 0; position: sticky; top: 0; z-index: 1000; }
+        /* --- PROFESSIONAL STYLE SHEET --- */
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background-color: #f9f9f9; color: #333; line-height: 1.7; }
+        header { background: #111; color: white; padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .logo-text { font-weight: bold; font-size: 1.4rem; letter-spacing: 2px; color: #fff; }
+        .logo-text { font-weight: bold; font-size: 1.4rem; letter-spacing: 2px; color: #fff; text-decoration: none; }
         .nav-links a { color: #ccc; text-decoration: none; margin-left: 20px; font-size: 0.9rem; text-transform: uppercase; transition: 0.3s; }
         .nav-links a:hover { color: #fff; }
-
-        .content-container { max-width: 800px; margin: 40px auto; padding: 0 20px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 40px; }
-        h1 { border-bottom: 2px solid #007bff; padding-bottom: 10px; color: #111; }
-        h2 { color: #007bff; margin-top: 30px; }
-        p { margin-bottom: 20px; text-align: justify; }
         
-        .footer { background: #111; color: white; text-align: center; padding: 30px 0; margin-top: 50px; }
-        .footer a { color: #25d366; text-decoration: none; font-weight: bold; }
+        .hero-section { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('lab-bg.jpg'); background-size: cover; background-position: center; color: white; text-align: center; padding: 60px 20px; }
+        .hero-section h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .hero-section p { font-size: 1.1rem; color: #00d4ff; font-weight: bold; }
+
+        .content-layout { max-width: 1000px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
+        
+        article { background: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; border: 1px solid #eee; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .category-tag { background: #007bff; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; }
+        article h2 { margin-top: 15px; color: #111; font-size: 1.8rem; }
+        article p { color: #555; font-size: 1rem; }
+        .read-more { display: inline-block; margin-top: 15px; color: #007bff; font-weight: bold; text-decoration: none; border-bottom: 2px solid transparent; transition: 0.3s; }
+        .read-more:hover { border-bottom: 2px solid #007bff; }
+
+        /* Sidebar for engagement */
+        .sidebar-box { background: #111; color: white; padding: 25px; border-radius: 8px; height: fit-content; position: sticky; top: 100px; }
+        .sidebar-box h3 { margin-top: 0; color: #00d4ff; }
+        .cta-btn { display: block; background: #00d4ff; color: #111; text-align: center; padding: 12px; border-radius: 4px; text-decoration: none; font-weight: bold; margin-top: 20px; transition: 0.3s; }
+        .cta-btn:hover { background: white; }
+
+        footer { background: #111; color: white; text-align: center; padding: 40px 0; margin-top: 60px; }
+
+        @media (max-width: 800px) { .content-layout { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
+
     <header>
         <nav>
-            <div class="logo-container"><span class="logo-text">KATALYST PEPTIDES</span></div>
+            <a href="index.html" class="logo-text">KATALYST PEPTIDES</a>
             <div class="nav-links">
                 <a href="index.html">Catalog</a>
-                <a href="articles.html">Research Hub</a>
+                <a href="articles.html" style="color:#fff; border-bottom: 2px solid #00d4ff;">Research Hub</a>
                 <a href="calculator.html">Dosing Tool</a>
             </div>
         </nav>
     </header>
 
-    <main class="content-container">
-        <h1>Peptide Research Hub</h1>
-        <p>Welcome to the Katalyst Peptides Research Hub. We provide clinical data and synthesized insights for laboratory research purposes.</p>
-        
-        <article>
-            <h2>BPC-157 Clinical Overview</h2>
-            <p>Body Protection Compound 157 (BPC-157) is a pentadecapeptide composed of 15 amino acids. It is a partial sequence of body protection compound that is discovered in and isolated from human gastric juice...</p>
-        </article>
+    <section class="hero-section">
+        <h1>Peptide Research & Clinical Data</h1>
+        <p>Evidence-based insights for laboratory studies.</p>
+    </section>
 
-        <article>
-            <h2>The Role of GLP-1 Agonists</h2>
-            <p>Research into Semaglutide and Tirzepatide continues to evolve, focusing on their mechanisms regarding glucose-dependent insulinotropic polypeptides...</p>
-        </article>
+    <main class="content-layout">
+        <section class="articles-list">
+            
+            <article>
+                <span class="category-tag">Protocols</span>
+                <h2>Peptide Reconstitution: A Beginner's Guide</h2>
+                <p>Correct reconstitution is critical for maintaining the integrity of lyophilized peptides. This guide covers the importance of using Bacteriostatic Water, the "gentle swirl" technique to avoid damaging delicate peptide chains, and optimal storage temperatures for long-term stability...</p>
+                <a href="#" class="read-more">Continue Reading →</a>
+            </article>
+
+            <article>
+                <span class="category-tag">Wound Healing</span>
+                <h2>The Science of BPC-157 and Tissue Repair</h2>
+                <p>Body Protection Compound 157 (BPC-157) has shown remarkable potential in research involving the healing of tendons, muscles, and ligaments. We dive into the "Angiogenesis" process—how BPC-157 helps trigger the formation of new blood vessels to accelerate recovery in research models...</p>
+                <a href="#" class="read-more">Continue Reading →</a>
+            </article>
+
+            <article>
+                <span class="category-tag">Metabolic Research</span>
+                <h2>Comparing GLP-1 and GIP Agonists</h2>
+                <p>Understanding the difference between Semaglutide, Tirzepatide, and the new Retatrutide. While Semaglutide targets the GLP-1 receptor, newer research focuses on "Triple Agonists" like Retatrutide that also target GCG and GIP receptors for enhanced metabolic signaling...</p>
+                <a href="#" class="read-more">Continue Reading →</a>
+            </article>
+
+        </section>
+
+        <aside class="sidebar-box">
+            <h3>Ready to Order?</h3>
+            <p>We supply high-purity research peptides nationwide in South Africa.</p>
+            <ul style="padding-left: 18px; font-size: 0.85rem; color: #ccc;">
+                <li>Discreet Packaging</li>
+                <li>5-7 Day Delivery</li>
+                <li>Lab Tested Purity</li>
+            </ul>
+            <a href="index.html" class="cta-btn">View Full Catalog</a>
+            <p style="font-size: 0.75rem; color: #888; margin-top: 15px; text-align: center;">Support: 060 421 6988</p>
+        </aside>
     </main>
 
-    <footer class="footer">
-        <p>Technical Inquiries? WhatsApp us: <a href="https://wa.me/27604216988">060 421 6988</a></p>
+    <footer>
+        <p>&copy; 2026 Katalyst Peptides | For Laboratory Research Use Only</p>
     </footer>
+
 </body>
 </html>
