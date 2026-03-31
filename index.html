@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalyst Peptides | Research Catalog</title>
+    <title>Katalyst Peptides | Research Chemicals South Africa</title>
     <link rel="stylesheet" href="style.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-43W7D6SGG7"></script>
     <script>
@@ -15,8 +15,10 @@
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">KATALYST PEPTIDES</div>
+        <nav class="navbar">
+            <div class="logo-container">
+                <span class="logo-text">KATALYST PEPTIDES</span>
+            </div>
             <div class="nav-links">
                 <a href="index.html">Catalog</a>
                 <a href="articles.html">Research Hub</a>
@@ -25,38 +27,56 @@
         </nav>
     </header>
 
-    <main>
-        <section class="hero">
-            <h1>Premium Research Peptides</h1>
-            <p>Order over R3000 to get 10% OFF and FREE Shipping!</p>
-        </section>
+    <div class="promo-banner">
+        SPECIAL: 10% OFF & FREE SHIPPING ON ORDERS OVER R3000
+    </div>
 
-        <div id="product-grid" class="grid">
-            </div>
+    <main class="main-layout">
+        <section id="product-grid" class="product-grid">
+            </section>
 
-        <aside id="cart-sidebar">
+        <aside id="cart-sidebar" class="cart-sidebar">
             <h2>Your Order</h2>
-            <div id="cart-items"></div>
-            <hr>
-            <div class="cart-summary">
-                <p>Subtotal: <span id="cart-subtotal">R0.00</span></p>
-                <p>Discount (10%): <span id="cart-discount">R0.00</span></p>
-                <p>Shipping: <span id="cart-shipping">R150.00</span></p>
-                <h3>Total: <span id="cart-total">R150.00</span></h3>
+            <div id="cart-items" class="cart-items-container"></div>
+            
+            <div class="cart-totals">
+                <div class="total-line">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">R0.00</span>
+                </div>
+                <div id="discount-line" class="total-line discount-text" style="display:none;">
+                    <span>Bulk Special (10%):</span>
+                    <span id="discount">-R0.00</span>
+                </div>
+                <div class="total-line">
+                    <span>Shipping:</span>
+                    <span id="shipping">R150.00</span>
+                </div>
+                <div class="total-line final-total">
+                    <span>Grand Total:</span>
+                    <span id="total">R0.00</span>
+                </div>
             </div>
-            <button onclick="checkoutWhatsApp()" class="btn-checkout">Order via WhatsApp</button>
+            <button onclick="checkout()" class="checkout-btn">Complete via WhatsApp</button>
         </aside>
     </main>
 
     <script>
-        // Updated prices with 10% increase
+        // Full Product List with 10% Price Increase Applied
         const products = [
-            { id: 1, name: "BPC-157 (5mg)", price: 550, image: "bpc157.jpg" },
-            { id: 2, name: "TB-500 (5mg)", price: 660, image: "tb500.jpg" },
-            { id: 3, name: "Retatrutide (5mg)", price: 1320, image: "reta5.jpg" },
-            { id: 4, name: "Retatrutide (10mg)", price: 2420, image: "reta10.jpg" },
-            { id: 5, name: "Tirzepatide (5mg)", price: 1100, image: "tirz5.jpg" },
-            { id: 6, name: "Semaglutide (5mg)", price: 880, image: "sema5.jpg" }
+            { id: 1, name: "BPC157 (5mg)", price: 495, img: "bpc157.jpg" },
+            { id: 2, name: "IGF1-LR3 (1mg)", price: 440, img: "igf.jpg" },
+            { id: 3, name: "Semax (5mg)", price: 495, img: "semax.jpg" },
+            { id: 4, name: "Selank (5mg)", price: 495, img: "selank.jpg" },
+            { id: 5, name: "Semaglutide (5mg)", price: 660, img: "sema5.jpg" },
+            { id: 6, name: "Tirzepatide (5mg)", price: 825, img: "tirz5.jpg" },
+            { id: 7, name: "Retatrutide (30mg)", price: 1595, img: "reta30.jpg" },
+            { id: 8, name: "Retatrutide (50mg)", price: 2035, img: "reta50.jpg" },
+            { id: 9, name: "GHK-CU (100mg)", price: 495, img: "ghk.jpg" },
+            { id: 10, name: "Mots-C (40mg)", price: 990, img: "mots.jpg" },
+            { id: 11, name: "Wolverine Stack", price: 825, img: "wolverine.jpg" },
+            { id: 12, name: "SLU PP-332", price: 550, img: "slu.jpg" },
+            { id: 13, name: "Syringes (Pack)", price: 36, img: "syringes.jpg" }
         ];
 
         let cart = [];
@@ -65,62 +85,53 @@
             const grid = document.getElementById('product-grid');
             grid.innerHTML = products.map(p => `
                 <div class="product-card">
-                    <img src="${p.image}" alt="${p.name}">
+                    <img src="${p.img}" alt="${p.name}">
                     <h3>${p.name}</h3>
-                    <p class="price">R${p.price}</p>
-                    <button onclick="addToCart(${p.id})" class="btn-add">Add to Order</button>
+                    <p class="price">R${p.price.toFixed(2)}</p>
+                    <button onclick="addToCart(${p.id})">Add to Order</button>
                 </div>
             `).join('');
         }
 
         function addToCart(id) {
-            const product = products.find(p => p.id === id);
-            const inCart = cart.find(item => item.id === id);
-            if (inCart) {
-                inCart.quantity++;
-            } else {
-                cart.push({...product, quantity: 1});
-            }
-            updateUI();
+            const item = products.find(p => p.id === id);
+            const exists = cart.find(c => c.id === id);
+            if (exists) { exists.qty++; } else { cart.push({...item, qty: 1}); }
+            updateCart();
         }
 
-        function updateUI() {
-            const cartList = document.getElementById('cart-items');
-            cartList.innerHTML = cart.map(item => `
+        function updateCart() {
+            const container = document.getElementById('cart-items');
+            container.innerHTML = cart.map(c => `
                 <div class="cart-item">
-                    <span>${item.name} x${item.quantity}</span>
-                    <span>R${item.price * item.quantity}</span>
+                    <span>${c.name} x${c.qty}</span>
+                    <span>R${(c.price * c.qty).toFixed(2)}</span>
                 </div>
             `).join('');
 
-            let subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            let discount = 0;
-            let shipping = 150;
+            let sub = cart.reduce((a, b) => a + (b.price * b.qty), 0);
+            let disc = 0;
+            let ship = 150;
 
-            // Special: Over R3000 gets 10% off and Free Shipping
-            if (subtotal >= 3000) {
-                discount = subtotal * 0.10;
-                shipping = 0;
+            if (sub >= 3000) {
+                disc = sub * 0.10;
+                ship = 0;
+                document.getElementById('discount-line').style.display = 'flex';
+            } else {
+                document.getElementById('discount-line').style.display = 'none';
             }
 
-            let total = subtotal - discount + shipping;
-
-            document.getElementById('cart-subtotal').innerText = `R${subtotal.toFixed(2)}`;
-            document.getElementById('cart-discount').innerText = `R${discount.toFixed(2)}`;
-            document.getElementById('cart-shipping').innerText = shipping === 0 ? "FREE" : `R${shipping.toFixed(2)}`;
-            document.getElementById('cart-total').innerText = `R${total.toFixed(2)}`;
+            document.getElementById('subtotal').innerText = `R${sub.toFixed(2)}`;
+            document.getElementById('discount').innerText = `-R${disc.toFixed(2)}`;
+            document.getElementById('shipping').innerText = ship === 0 ? "FREE" : `R${ship.toFixed(2)}`;
+            document.getElementById('total').innerText = `R${(sub - disc + ship).toFixed(2)}`;
         }
 
-        function checkoutWhatsApp() {
-            if (cart.length === 0) return alert("Your cart is empty!");
-            
-            let message = "New Order Request:%0A";
-            cart.forEach(item => {
-                message += `- ${item.name} (x${item.quantity})%0A`;
-            });
-            message += `%0ATotal: ${document.getElementById('cart-total').innerText}`;
-            
-            // Updated WhatsApp Number
+        function checkout() {
+            if (cart.length === 0) return alert("Please add items first.");
+            let message = "Katalyst Peptides Order:%0A";
+            cart.forEach(c => message += `- ${c.name} x${c.qty}%0A`);
+            message += `%0ATotal: ${document.getElementById('total').innerText}`;
             window.open(`https://wa.me/27604216988?text=${message}`);
         }
 
