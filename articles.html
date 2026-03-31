@@ -1,102 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Hub | Peptide Science & Protocols | Katalyst Peptides</title>
-    <style>
-        /* --- PROFESSIONAL STYLE SHEET --- */
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background-color: #f9f9f9; color: #333; line-height: 1.7; }
-        header { background: #111; color: white; padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .logo-text { font-weight: bold; font-size: 1.4rem; letter-spacing: 2px; color: #fff; text-decoration: none; }
-        .nav-links a { color: #ccc; text-decoration: none; margin-left: 20px; font-size: 0.9rem; text-transform: uppercase; transition: 0.3s; }
-        .nav-links a:hover { color: #fff; }
+<section class="articles-list">
+    
+    <article>
+        <span class="category-tag">Protocols</span>
+        <h2>Peptide Reconstitution: A Beginner's Guide</h2>
+        <p>Correct reconstitution is critical for maintaining the integrity of lyophilized peptides. This guide covers the importance of using Bacteriostatic Water...</p>
         
-        .hero-section { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('lab-bg.jpg'); background-size: cover; background-position: center; color: white; text-align: center; padding: 60px 20px; }
-        .hero-section h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        .hero-section p { font-size: 1.1rem; color: #00d4ff; font-weight: bold; }
-
-        .content-layout { max-width: 1000px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
+        <div id="full-article-1" style="display:none; margin-top: 15px; border-top: 1px solid #eee; pt-15px;">
+            <p><strong>The Process:</strong> Gently inject the Bacteriostatic Water (BAC) against the side of the glass vial. Do not spray directly onto the lyophilized powder. <strong>The "Gentle Swirl":</strong> Avoid shaking the vial, as this can shear the delicate peptide chains. Instead, gently swirl until the solution is clear.</p>
+            <p><strong>Storage:</strong> Once reconstituted, most peptides should be stored in a refrigerator between 2°C and 8°C. Protect the vial from direct sunlight to prevent degradation.</p>
+        </div>
         
-        article { background: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; border: 1px solid #eee; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-        .category-tag { background: #007bff; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; }
-        article h2 { margin-top: 15px; color: #111; font-size: 1.8rem; }
-        article p { color: #555; font-size: 1rem; }
-        .read-more { display: inline-block; margin-top: 15px; color: #007bff; font-weight: bold; text-decoration: none; border-bottom: 2px solid transparent; transition: 0.3s; }
-        .read-more:hover { border-bottom: 2px solid #007bff; }
+        <a href="javascript:void(0)" onclick="toggleArticle(1)" id="btn-1" class="read-more">Read Full Guide →</a>
+    </article>
 
-        /* Sidebar for engagement */
-        .sidebar-box { background: #111; color: white; padding: 25px; border-radius: 8px; height: fit-content; position: sticky; top: 100px; }
-        .sidebar-box h3 { margin-top: 0; color: #00d4ff; }
-        .cta-btn { display: block; background: #00d4ff; color: #111; text-align: center; padding: 12px; border-radius: 4px; text-decoration: none; font-weight: bold; margin-top: 20px; transition: 0.3s; }
-        .cta-btn:hover { background: white; }
+    <article>
+        <span class="category-tag">Wound Healing</span>
+        <h2>The Science of BPC-157 and Tissue Repair</h2>
+        <p>Body Protection Compound 157 (BPC-157) has shown remarkable potential in research involving the healing of tendons, muscles, and ligaments...</p>
+        
+        <div id="full-article-2" style="display:none; margin-top: 15px; border-top: 1px solid #eee; pt-15px;">
+            <p><strong>Angiogenesis:</strong> BPC-157 works by triggering the formation of new blood vessels, a process known as angiogenesis. This increases the delivery of nutrients to damaged tissues that typically have poor blood flow, such as tendons.</p>
+            <p><strong>Research Findings:</strong> Studies in laboratory models have shown accelerated healing in Achilles tendon ruptures and muscle tears compared to control groups. It remains one of the most researched peptides for recovery protocols.</p>
+        </div>
+        
+        <a href="javascript:void(0)" onclick="toggleArticle(2)" id="btn-2" class="read-more">Read Full Study →</a>
+    </article>
 
-        footer { background: #111; color: white; text-align: center; padding: 40px 0; margin-top: 60px; }
+    <article>
+        <span class="category-tag">Metabolic Research</span>
+        <h2>Comparing GLP-1 and GIP Agonists</h2>
+        <p>Understanding the difference between Semaglutide, Tirzepatide, and the new Retatrutide for research purposes...</p>
+        
+        <div id="full-article-3" style="display:none; margin-top: 15px; border-top: 1px solid #eee; pt-15px;">
+            <p><strong>The Evolution:</strong> Semaglutide is a single GLP-1 agonist. Tirzepatide added a second pathway (GIP), while Retatrutide is a "Triple Agonist" (GLP-1, GIP, and Glucagon). </p>
+            <p><strong>Why it matters:</strong> In research models, the triple-action pathway of Retatrutide has shown significantly higher metabolic signaling efficiency. This makes it the current "gold standard" for metabolic research enthusiasts.</p>
+        </div>
+        
+        <a href="javascript:void(0)" onclick="toggleArticle(3)" id="btn-3" class="read-more">View Comparison →</a>
+    </article>
 
-        @media (max-width: 800px) { .content-layout { grid-template-columns: 1fr; } }
-    </style>
-</head>
-<body>
+</section>
 
-    <header>
-        <nav>
-            <a href="index.html" class="logo-text">KATALYST PEPTIDES</a>
-            <div class="nav-links">
-                <a href="index.html">Catalog</a>
-                <a href="articles.html" style="color:#fff; border-bottom: 2px solid #00d4ff;">Research Hub</a>
-                <a href="calculator.html">Dosing Tool</a>
-            </div>
-        </nav>
-    </header>
-
-    <section class="hero-section">
-        <h1>Peptide Research & Clinical Data</h1>
-        <p>Evidence-based insights for laboratory studies.</p>
-    </section>
-
-    <main class="content-layout">
-        <section class="articles-list">
-            
-            <article>
-                <span class="category-tag">Protocols</span>
-                <h2>Peptide Reconstitution: A Beginner's Guide</h2>
-                <p>Correct reconstitution is critical for maintaining the integrity of lyophilized peptides. This guide covers the importance of using Bacteriostatic Water, the "gentle swirl" technique to avoid damaging delicate peptide chains, and optimal storage temperatures for long-term stability...</p>
-                <a href="#" class="read-more">Continue Reading →</a>
-            </article>
-
-            <article>
-                <span class="category-tag">Wound Healing</span>
-                <h2>The Science of BPC-157 and Tissue Repair</h2>
-                <p>Body Protection Compound 157 (BPC-157) has shown remarkable potential in research involving the healing of tendons, muscles, and ligaments. We dive into the "Angiogenesis" process—how BPC-157 helps trigger the formation of new blood vessels to accelerate recovery in research models...</p>
-                <a href="#" class="read-more">Continue Reading →</a>
-            </article>
-
-            <article>
-                <span class="category-tag">Metabolic Research</span>
-                <h2>Comparing GLP-1 and GIP Agonists</h2>
-                <p>Understanding the difference between Semaglutide, Tirzepatide, and the new Retatrutide. While Semaglutide targets the GLP-1 receptor, newer research focuses on "Triple Agonists" like Retatrutide that also target GCG and GIP receptors for enhanced metabolic signaling...</p>
-                <a href="#" class="read-more">Continue Reading →</a>
-            </article>
-
-        </section>
-
-        <aside class="sidebar-box">
-            <h3>Ready to Order?</h3>
-            <p>We supply high-purity research peptides nationwide in South Africa.</p>
-            <ul style="padding-left: 18px; font-size: 0.85rem; color: #ccc;">
-                <li>Discreet Packaging</li>
-                <li>5-7 Day Delivery</li>
-                <li>Lab Tested Purity</li>
-            </ul>
-            <a href="index.html" class="cta-btn">View Full Catalog</a>
-            <p style="font-size: 0.75rem; color: #888; margin-top: 15px; text-align: center;">Support: 060 421 6988</p>
-        </aside>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Katalyst Peptides | For Laboratory Research Use Only</p>
-    </footer>
-
-</body>
-</html>
+<script>
+    function toggleArticle(id) {
+        const fullText = document.getElementById(`full-article-${id}`);
+        const btn = document.getElementById(`btn-${id}`);
+        
+        if (fullText.style.display === "none") {
+            fullText.style.display = "block";
+            btn.innerText = "Show Less ↑";
+        } else {
+            fullText.style.display = "none";
+            btn.innerText = "Read More →";
+        }
+    }
+</script>
