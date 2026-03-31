@@ -4,48 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research Hub | Katalyst Peptides</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background-color: #f9f9f9; color: #333; line-height: 1.6; }
+        header { background: #111; color: white; padding: 15px 0; position: sticky; top: 0; z-index: 1000; }
+        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .logo-text { font-weight: bold; font-size: 1.4rem; letter-spacing: 2px; color: #fff; }
+        .nav-links a { color: #ccc; text-decoration: none; margin-left: 20px; font-size: 0.9rem; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: #fff; }
+
+        .content-container { max-width: 800px; margin: 40px auto; padding: 0 20px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 40px; }
+        h1 { border-bottom: 2px solid #007bff; padding-bottom: 10px; color: #111; }
+        h2 { color: #007bff; margin-top: 30px; }
+        p { margin-bottom: 20px; text-align: justify; }
+        
+        .footer { background: #111; color: white; text-align: center; padding: 30px 0; margin-top: 50px; }
+        .footer a { color: #25d366; text-decoration: none; font-weight: bold; }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="logo-container">
-                <span class="logo-text">KATALYST PEPTIDES</span>
-            </div>
+        <nav>
+            <div class="logo-container"><span class="logo-text">KATALYST PEPTIDES</span></div>
             <div class="nav-links">
                 <a href="index.html">Catalog</a>
-                <a href="articles.html" class="active">Research Hub</a>
+                <a href="articles.html">Research Hub</a>
                 <a href="calculator.html">Dosing Tool</a>
             </div>
         </nav>
     </header>
 
     <main class="content-container">
-        <section class="article-hero">
-            <h1>Clinical Research & Peptide Data</h1>
-            <p>Peer-reviewed insights for laboratory research purposes.</p>
-        </section>
+        <h1>Peptide Research Hub</h1>
+        <p>Welcome to the Katalyst Peptides Research Hub. We provide clinical data and synthesized insights for laboratory research purposes.</p>
+        
+        <article>
+            <h2>BPC-157 Clinical Overview</h2>
+            <p>Body Protection Compound 157 (BPC-157) is a pentadecapeptide composed of 15 amino acids. It is a partial sequence of body protection compound that is discovered in and isolated from human gastric juice...</p>
+        </article>
 
-        <div class="article-grid">
-            <article class="research-card">
-                <h2>BPC-157: Gastric Pentadecapeptide</h2>
-                <p>BPC-157 has been widely studied for its regenerative properties in tendon, muscle, and ligament repair...</p>
-                <a href="#" class="read-more">View Full Study</a>
-            </article>
-
-            <article class="research-card">
-                <h2>GLP-1 Agonists in Research</h2>
-                <p>Discussing the mechanism of action for Semaglutide and Tirzepatide in metabolic research settings...</p>
-                <a href="#" class="read-more">View Full Study</a>
-            </article>
-        </div>
+        <article>
+            <h2>The Role of GLP-1 Agonists</h2>
+            <p>Research into Semaglutide and Tirzepatide continues to evolve, focusing on their mechanisms regarding glucose-dependent insulinotropic polypeptides...</p>
+        </article>
     </main>
 
     <footer class="footer">
-        <div class="footer-content">
-            <p>For research inquiries, contact us via WhatsApp:</p>
-            <a href="https://wa.me/27604216988" class="wa-footer-link">060 421 6988</a>
-        </div>
+        <p>Technical Inquiries? WhatsApp us: <a href="https://wa.me/27604216988">060 421 6988</a></p>
     </footer>
 </body>
 </html>
