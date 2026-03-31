@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Katalyst Peptides | Research Chemicals South Africa</title>
     <style>
-        /* --- PROFESSIONAL STYLE SHEET --- */
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background-color: #f9f9f9; color: #333; line-height: 1.6; }
+        /* --- CORE STYLING --- */
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background-color: #f9f9f9; color: #333; line-height: 1.6; padding-bottom: 60px; }
         header { background: #111; color: white; padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .logo-text { font-weight: bold; font-size: 1.4rem; letter-spacing: 2px; color: #fff; }
@@ -15,48 +15,46 @@
         
         .promo-banner { background: #007bff; color: white; text-align: center; padding: 8px; font-weight: bold; font-size: 0.85rem; letter-spacing: 1px; }
 
+        /* Trust Banner */
+        .trust-row { background: #eee; display: flex; justify-content: center; gap: 30px; padding: 15px; font-size: 0.8rem; font-weight: bold; color: #555; flex-wrap: wrap; }
+        .trust-item { display: flex; align-items: center; gap: 8px; }
+
         .main-layout { display: flex; max-width: 1200px; margin: 30px auto; gap: 30px; padding: 0 20px; }
         
         /* Product Grid */
         .product-grid { flex: 3; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 25px; }
-        .product-card { background: white; border: 1px solid #eee; border-radius: 8px; padding: 20px; text-align: center; transition: 0.3s; }
-        .product-card:hover { border-color: #007bff; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .product-card { background: white; border: 1px solid #eee; border-radius: 8px; padding: 20px; text-align: center; transition: 0.3s; position: relative; }
         .product-card img { max-width: 100%; height: 200px; object-fit: contain; margin-bottom: 15px; border-radius: 4px; }
         .product-card h3 { margin: 10px 0; font-size: 1.1rem; color: #222; }
         .price { color: #444; font-weight: bold; font-size: 1.2rem; margin-bottom: 15px; display: block; }
-        .product-card button { background: #111; color: white; border: none; padding: 10px 25px; border-radius: 4px; cursor: pointer; width: 100%; font-weight: bold; transition: 0.3s; }
+        .product-card button { background: #111; color: white; border: none; padding: 10px 25px; border-radius: 4px; cursor: pointer; width: 100%; font-weight: bold; }
         .product-card button:hover { background: #007bff; }
 
         /* Sidebar Cart */
         .cart-sidebar { flex: 1; background: white; padding: 25px; border-radius: 8px; border: 1px solid #eee; height: fit-content; position: sticky; top: 100px; }
-        .cart-sidebar h2 { margin-top: 0; font-size: 1.3rem; border-bottom: 2px solid #f4f4f4; padding-bottom: 10px; }
-        .cart-item { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.9rem; border-bottom: 1px solid #fafafa; padding-bottom: 8px; }
         .cart-totals { margin-top: 20px; background: #fafafa; padding: 15px; border-radius: 6px; }
         .total-line { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.95rem; }
         .discount-text { color: #28a745; font-weight: bold; }
-        .final-total { border-top: 2px solid #ddd; padding-top: 10px; font-weight: bold; font-size: 1.2rem; color: #000; }
-        .checkout-btn { background: #25d366; color: white; border: none; width: 100%; padding: 15px; border-radius: 6px; font-weight: bold; font-size: 1rem; cursor: pointer; margin-top: 15px; transition: 0.3s; }
-        .checkout-btn:hover { background: #128c7e; transform: translateY(-2px); }
+        .final-total { border-top: 2px solid #ddd; padding-top: 10px; font-weight: bold; font-size: 1.2rem; }
+        .checkout-btn { background: #25d366; color: white; border: none; width: 100%; padding: 15px; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 15px; }
+        
+        /* POPUP TOAST */
+        #toast { visibility: hidden; min-width: 250px; background-color: #333; color: #fff; text-align: center; border-radius: 8px; padding: 16px; position: fixed; z-index: 2000; left: 50%; bottom: 30px; transform: translateX(-50%); box-shadow: 0 4px 15px rgba(0,0,0,0.2); border-left: 5px solid #25d366; }
+        #toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
 
-        @media (max-width: 900px) {
-            .main-layout { flex-direction: column; }
-            .cart-sidebar { position: static; order: -1; }
-        }
+        /* FLOATING WHATSAPP */
+        .float-wa { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 1001; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+
+        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+
+        @media (max-width: 900px) { .main-layout { flex-direction: column; } .cart-sidebar { position: static; order: -1; } }
     </style>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-43W7D6SGG7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-43W7D6SGG7');
-    </script>
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="logo-container">
-                <span class="logo-text">KATALYST PEPTIDES</span>
-            </div>
+        <nav>
+            <div class="logo-container"><span class="logo-text">KATALYST PEPTIDES</span></div>
             <div class="nav-links">
                 <a href="index.html">Catalog</a>
                 <a href="articles.html">Research Hub</a>
@@ -65,8 +63,12 @@
         </nav>
     </header>
 
-    <div class="promo-banner">
-        SPECIAL: 10% OFF & FREE SHIPPING ON ORDERS OVER R3000
+    <div class="promo-banner">SPECIAL: 10% OFF & FREE SHIPPING ON ORDERS OVER R3000</div>
+
+    <div class="trust-row">
+        <div class="trust-item">✓ DISCREET PACKAGING</div>
+        <div class="trust-item">✓ LAB TESTED PURITY</div>
+        <div class="trust-item">✓ 5-7 DAY NATIONWIDE DELIVERY</div>
     </div>
 
     <main class="main-layout">
@@ -74,34 +76,28 @@
 
         <aside id="cart-sidebar" class="cart-sidebar">
             <h2>Your Order</h2>
-            <div id="cart-items" class="cart-items-container">
+            <div id="cart-items">
                 <p style="color: #999; font-size: 0.85rem;">Your cart is empty.</p>
             </div>
-            
             <div class="cart-totals">
-                <div class="total-line">
-                    <span>Subtotal:</span>
-                    <span id="subtotal">R0.00</span>
-                </div>
-                <div id="discount-line" class="total-line discount-text" style="display:none;">
-                    <span>Bulk Special (10%):</span>
-                    <span id="discount">-R0.00</span>
-                </div>
-                <div class="total-line">
-                    <span>Shipping:</span>
-                    <span id="shipping">R150.00</span>
-                </div>
-                <div class="total-line final-total">
-                    <span>Grand Total:</span>
-                    <span id="total">R0.00</span>
-                </div>
+                <div class="total-line"><span>Subtotal:</span><span id="subtotal">R0.00</span></div>
+                <div id="discount-line" class="total-line discount-text" style="display:none;"><span>Bulk Special (10%):</span><span id="discount">-R0.00</span></div>
+                <div class="total-line"><span>Shipping:</span><span id="shipping">R150.00</span></div>
+                <div class="total-line final-total"><span>Grand Total:</span><span id="total">R0.00</span></div>
             </div>
             <button onclick="checkout()" class="checkout-btn">Complete via WhatsApp</button>
+            <p style="font-size: 0.75rem; color: #888; margin-top: 10px; text-align: center;">Delivery typically takes 5-7 business days.</p>
         </aside>
     </main>
 
+    <div id="toast">Item added to order!</div>
+
+    <a href="https://wa.me/27604216988" class="float-wa" target="_blank">
+        <span style="font-size: 14px; font-weight: bold;">CHAT</span>
+    </style>
+    </a>
+
     <script>
-        // Your Verified Product List
         const products = [
             { id: 1, name: "BPC157 (5mg)", price: 495, img: "bpc157.jpg" },
             { id: 2, name: "IGF1-LR3 (1mg)", price: 2950, img: "igf1.jpg" },
@@ -121,8 +117,7 @@
         let cart = [];
 
         function renderProducts() {
-            const grid = document.getElementById('product-grid');
-            grid.innerHTML = products.map(p => `
+            document.getElementById('product-grid').innerHTML = products.map(p => `
                 <div class="product-card">
                     <img src="${p.img}" alt="${p.name}">
                     <h3>${p.name}</h3>
@@ -136,6 +131,13 @@
             const item = products.find(p => p.id === id);
             const exists = cart.find(c => c.id === id);
             if (exists) { exists.qty++; } else { cart.push({...item, qty: 1}); }
+            
+            // Show Toast
+            const toast = document.getElementById("toast");
+            toast.innerText = `${item.name} added to order!`;
+            toast.className = "show";
+            setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
+
             updateCart();
         }
 
@@ -174,7 +176,7 @@
             if (cart.length === 0) return alert("Please add items first.");
             let message = "Katalyst Peptides Order Request:%0A";
             cart.forEach(c => message += `- ${c.name} x${c.qty}%0A`);
-            message += `%0ATotal: ${document.getElementById('total').innerText}`;
+            message += `%0ATotal: ${document.getElementById('total').innerText}%0A%0A(Note: Shipping 5-7 days)`;
             window.open(`https://wa.me/27604216988?text=${message}`);
         }
 
