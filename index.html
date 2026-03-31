@@ -4,7 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Katalyst Peptides | Research Chemicals South Africa</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- PROFESSIONAL STYLE SHEET --- */
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background-color: #f9f9f9; color: #333; line-height: 1.6; }
+        header { background: #111; color: white; padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .logo-text { font-weight: bold; font-size: 1.4rem; letter-spacing: 2px; color: #fff; }
+        .nav-links a { color: #ccc; text-decoration: none; margin-left: 20px; font-size: 0.9rem; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: #fff; }
+        
+        .promo-banner { background: #007bff; color: white; text-align: center; padding: 8px; font-weight: bold; font-size: 0.85rem; letter-spacing: 1px; }
+
+        .main-layout { display: flex; max-width: 1200px; margin: 30px auto; gap: 30px; padding: 0 20px; }
+        
+        /* Product Grid */
+        .product-grid { flex: 3; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 25px; }
+        .product-card { background: white; border: 1px solid #eee; border-radius: 8px; padding: 20px; text-align: center; transition: 0.3s; }
+        .product-card:hover { border-color: #007bff; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .product-card img { max-width: 100%; height: 200px; object-fit: contain; margin-bottom: 15px; border-radius: 4px; }
+        .product-card h3 { margin: 10px 0; font-size: 1.1rem; color: #222; }
+        .price { color: #444; font-weight: bold; font-size: 1.2rem; margin-bottom: 15px; display: block; }
+        .product-card button { background: #111; color: white; border: none; padding: 10px 25px; border-radius: 4px; cursor: pointer; width: 100%; font-weight: bold; transition: 0.3s; }
+        .product-card button:hover { background: #007bff; }
+
+        /* Sidebar Cart */
+        .cart-sidebar { flex: 1; background: white; padding: 25px; border-radius: 8px; border: 1px solid #eee; height: fit-content; position: sticky; top: 100px; }
+        .cart-sidebar h2 { margin-top: 0; font-size: 1.3rem; border-bottom: 2px solid #f4f4f4; padding-bottom: 10px; }
+        .cart-item { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.9rem; border-bottom: 1px solid #fafafa; padding-bottom: 8px; }
+        .cart-totals { margin-top: 20px; background: #fafafa; padding: 15px; border-radius: 6px; }
+        .total-line { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.95rem; }
+        .discount-text { color: #28a745; font-weight: bold; }
+        .final-total { border-top: 2px solid #ddd; padding-top: 10px; font-weight: bold; font-size: 1.2rem; color: #000; }
+        .checkout-btn { background: #25d366; color: white; border: none; width: 100%; padding: 15px; border-radius: 6px; font-weight: bold; font-size: 1rem; cursor: pointer; margin-top: 15px; transition: 0.3s; }
+        .checkout-btn:hover { background: #128c7e; transform: translateY(-2px); }
+
+        @media (max-width: 900px) {
+            .main-layout { flex-direction: column; }
+            .cart-sidebar { position: static; order: -1; }
+        }
+    </style>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-43W7D6SGG7"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -32,12 +70,13 @@
     </div>
 
     <main class="main-layout">
-        <section id="product-grid" class="product-grid">
-            </section>
+        <section id="product-grid" class="product-grid"></section>
 
         <aside id="cart-sidebar" class="cart-sidebar">
             <h2>Your Order</h2>
-            <div id="cart-items" class="cart-items-container"></div>
+            <div id="cart-items" class="cart-items-container">
+                <p style="color: #999; font-size: 0.85rem;">Your cart is empty.</p>
+            </div>
             
             <div class="cart-totals">
                 <div class="total-line">
@@ -62,7 +101,7 @@
     </main>
 
     <script>
-        // Full Product List with 10% Price Increase Applied
+        // Your Verified Product List
         const products = [
             { id: 1, name: "BPC157 (5mg)", price: 495, img: "bpc157.jpg" },
             { id: 2, name: "IGF1-LR3 (1mg)", price: 2950, img: "igf1.jpg" },
@@ -102,12 +141,16 @@
 
         function updateCart() {
             const container = document.getElementById('cart-items');
-            container.innerHTML = cart.map(c => `
-                <div class="cart-item">
-                    <span>${c.name} x${c.qty}</span>
-                    <span>R${(c.price * c.qty).toFixed(2)}</span>
-                </div>
-            `).join('');
+            if(cart.length === 0) {
+                container.innerHTML = '<p style="color: #999; font-size: 0.85rem;">Your cart is empty.</p>';
+            } else {
+                container.innerHTML = cart.map(c => `
+                    <div class="cart-item">
+                        <span>${c.name} x${c.qty}</span>
+                        <span>R${(c.price * c.qty).toFixed(2)}</span>
+                    </div>
+                `).join('');
+            }
 
             let sub = cart.reduce((a, b) => a + (b.price * b.qty), 0);
             let disc = 0;
@@ -129,7 +172,7 @@
 
         function checkout() {
             if (cart.length === 0) return alert("Please add items first.");
-            let message = "Katalyst Peptides Order:%0A";
+            let message = "Katalyst Peptides Order Request:%0A";
             cart.forEach(c => message += `- ${c.name} x${c.qty}%0A`);
             message += `%0ATotal: ${document.getElementById('total').innerText}`;
             window.open(`https://wa.me/27604216988?text=${message}`);
